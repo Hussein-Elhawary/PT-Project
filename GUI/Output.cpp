@@ -137,6 +137,7 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 
 }
 
+
 void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, bool Selected )
 {
 	if (Selected)	//if stat is selected, it should be highlighted
