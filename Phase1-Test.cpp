@@ -58,9 +58,14 @@ int main()
 	pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
 
 	//Drawing highlighted assignment statement
+	double dummy;
+	dummy = pIn->GetValue(pOut);
 	P.x = 100;	P.y = 400;
-	pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000", true);
-
+	//pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, to_string(dummy) , true);
+	Point Q;
+	Q.x = P.x;
+	Q.y = P.y - 100;
+	pOut->DrawConnector(P,Q,1);
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();

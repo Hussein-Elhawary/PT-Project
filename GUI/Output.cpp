@@ -136,6 +136,98 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 	pWind->DrawString(Left.x+width/4, Left.y + height/4, Text);
 
 }
+
+void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, bool Selected )
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawClr, 3);	//use normal color
+
+	//Draw the statement block Roumbus
+	int pointsX[4];
+	int pointsY[4];
+	pointsX[0] = Left.x;
+	pointsY[0] = Left.y;
+	pointsX[1] = Left.x + width/2;
+	pointsY[1] = Left.y + height/2;
+	pointsX[2] = Left.x ;
+	pointsY[2] = Left.y + height;
+	pointsX[3] = Left.x - width/2;
+	pointsY[3] = Left.y + height/2;
+	int vertices = 4;
+	drawstyle dsStyle = FILLED;
+	pWind->DrawPolygon( pointsX , pointsY , vertices , dsStyle);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x - width/2+10 , Left.y +height/2-10, Text);
+
+}
+
+void Output::DrawStart(Point Left, int width, int height , bool Selected )
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawClr, 3);	//use normal color
+
+	
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width / 4, Left.y + height / 4, "Start");
+}
+
+void Output::DrawEnd(Point Left, int width, int height,  bool Selected )
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawClr, 3);	//use normal color
+
+	
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width / 4, Left.y + height / 4, "End");
+
+}
+
+void Output::DrawConnector(Point Start, Point End, bool Selected)
+{
+	drawstyle dsStyle = FRAME;
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawClr, 3);	//use normal color
+
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawLine(Start.x, Start.y, Start.x, End.y, dsStyle);
+	pWind->DrawLine(Start.x, End.y, End.x, End.y, dsStyle);
+	if (Start.x == End.x && Start.y < End.y )
+	{
+		pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
+		pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
+	}
+	else if (Start.x == End.x && Start.y > End.y)
+	{
+		pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
+		pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
+	}
+	else if (End.x > Start.x)
+		{
+			pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
+			pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
+		}
+	else
+		{
+			pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
+			pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
+		}
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 Output::~Output()
 {

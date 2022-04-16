@@ -22,6 +22,10 @@ public:
 
 	// -- Statements Drawing Functions
 	void DrawAssign(Point Left, int width, int height, string Text, bool Selected=false);
+	void DrawCondtionalStat(Point Left, int width, int height, string Text, bool Selected = false);
+	void DrawStart(Point Left, int width, int height, bool Selected = false);
+	void DrawEnd(Point Left, int width, int height, bool Selected = false);
+	void DrawConnector(Point Start , Point End, bool Selected);
 
 	//TODO: Add similar functions for drawing all other statements.
 	//		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
