@@ -3,7 +3,8 @@
 
 //This is a test code to test the Input and Output classes
 // Peter Ashraf
-//Omar Elzahar
+//Omar Elzahar 
+//Hussein Elhawary 
 int main()
 {
 	 
