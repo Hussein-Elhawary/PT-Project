@@ -4,7 +4,6 @@
 //This is a test code to test the Input and Output classes
 // Peter Ashraf
 //Omar Elzahar
-//Youssef Zaki2 
 int main()
 {
 	 
