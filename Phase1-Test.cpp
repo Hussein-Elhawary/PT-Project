@@ -2,10 +2,10 @@
 #include "GUI\Output.h"
 
 //This is a test code to test the Input and Output classes
-
+// Peter Ashraf
 int main()
 {
-
+	 
 	Point P;
 
 	//Create Input and Output objects to test
