@@ -11,7 +11,7 @@ Output::Output()
 
 	UI.AppMode = DESIGN;	//Design Mode is the default mode
 
-	UI.StBrWdth = 50;
+	UI.StBrWdth = 50;		//Status Bar Height
 	UI.TlBrWdth = 50;
 	UI.MnItWdth = 80;
 
