@@ -26,6 +26,8 @@ public:
 	void DrawStart(Point Left, int width, int height, bool Selected = false);
 	void DrawEnd(Point Left, int width, int height, bool Selected = false);
 	void DrawConnector(Point Start , Point End, bool Selected);
+	void DrawRead(Point Left, int width, int height, string Text, bool Selected = false);
+	void DrawWrite(Point Left, int width, int height, string Text, bool Selected = false);
 
 	//TODO: Add similar functions for drawing all other statements.
 	//		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc

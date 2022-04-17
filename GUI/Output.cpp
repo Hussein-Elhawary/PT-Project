@@ -127,23 +127,24 @@ void Output::PrintMessage(string msg)	//Prints a message on status bar
 }
 
 //======================================================================================//
-//								Statements Drawing Functions								//
+//								Statements Drawing Functions							//
 //======================================================================================//
 
 //Draw assignment statement and write the "Text" on it
 void Output::DrawAssign(Point Left, int width, int height, string Text, bool Selected)
 {
+
 	if(Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HiClr,3);	//use highlighting color
 	else
 		pWind->SetPen(UI.DrawClr,3);	//use normal color
-
+	width += 3 * size(Text);
 	//Draw the statement block rectangle
 	pWind->DrawRectangle(Left.x, Left.y, Left.x + width, Left.y + height);
 		
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x+width/4, Left.y + height/4, Text);
+	pWind->DrawString(Left.x+width/3 - 2*size(Text), Left.y + height / 4, Text);
 
 }
 
@@ -156,6 +157,8 @@ void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, 
 		pWind->SetPen(UI.DrawClr, 3);	//use normal color
 
 	//Draw the statement block Roumbus
+	width += 3 * size(Text);
+	height += 3 * size(Text);
 	int pointsX[4];
 	int pointsY[4];
 	pointsX[0] = Left.x;
@@ -172,7 +175,7 @@ void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, 
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x - width/2+10 , Left.y +height/2-10, Text);
+	pWind->DrawString(Left.x  - 3.5*size(Text), Left.y + height / 2 - 10, Text);
 
 }
 
@@ -188,7 +191,7 @@ void Output::DrawStart(Point Left, int width, int height , bool Selected )
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x + width / 4, Left.y + height / 4, "Start");
+	pWind->DrawString(Left.x + width / 3, Left.y + height / 3, " Start");
 }
 
 void Output::DrawEnd(Point Left, int width, int height,  bool Selected )
@@ -203,7 +206,7 @@ void Output::DrawEnd(Point Left, int width, int height,  bool Selected )
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x + width / 4, Left.y + height / 4, "End");
+	pWind->DrawString(Left.x + width / 2.5, Left.y + height / 3, "End");
 
 }
 
@@ -238,6 +241,76 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 			pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
 			pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
 		}
+}
+
+void Output::DrawRead(Point Left, int width, int height, string Text, bool Selected)
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawClr, 3);	//use normal color
+
+
+	//Draw the statement block parallelogram
+	string text2 = "Read ";
+	Text = text2 + Text;
+	width += 4*size(Text);
+	int pointsX[4];
+	int pointsY[4];
+	pointsX[0] = Left.x;
+	pointsY[0] = Left.y;
+	pointsX[1] = Left.x + width ;
+	pointsY[1] = Left.y ;
+	pointsX[2] = Left.x+(2.0/3)*width;
+	pointsY[2] = Left.y + height;
+	pointsX[3] = Left.x-(1.0/3)*width;
+	pointsY[3] = Left.y + height ;
+	
+	
+	int vertices = 4;
+	drawstyle dsStyle = FILLED;
+	pWind->DrawPolygon(pointsX, pointsY, vertices, dsStyle);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width/3 - 5*size(Text), Left.y + height / 2 - 10,Text);
+
+
+
+}
+void Output::DrawWrite(Point Left, int width, int height, string Text, bool Selected)
+{
+
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawClr, 3);	//use normal color
+
+	//Draw the statement block parallelogram
+	string text2 = "Write ";
+	Text = text2 + Text;
+	width = width + 4 * size(Text);
+	int pointsX[4];
+	int pointsY[4];
+	pointsX[0] = Left.x;
+	pointsY[0] = Left.y;
+	pointsX[1] = Left.x + width;
+	pointsY[1] = Left.y;
+	pointsX[2] = Left.x + (2.0 / 3) * width;
+	pointsY[2] = Left.y + height;
+	pointsX[3] = Left.x - (1.0 / 3) * width;
+	pointsY[3] = Left.y + height;
+
+
+	int vertices = 4;
+	drawstyle dsStyle = FILLED;
+	pWind->DrawPolygon(pointsX, pointsY, vertices, dsStyle);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width / 3 - 5 * size(Text), Left.y + height / 2 - 10, Text);
+
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 Output::~Output()

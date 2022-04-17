@@ -5,7 +5,7 @@
 // Peter Ashraf
 //Omar Elzahar 
 //Hussein Elhawary 
-//Youssef Zaki
+//Youssef Zaki  
 int main()
 {
 	 
@@ -20,7 +20,7 @@ int main()
 	pIn->GetPointClicked(P);	//Wait for any click
 
 
-	pIn->GetValue(pOut);
+	//pIn->GetValue(pOut);
 
 	///////////////////////////////////////////////////////////////////////////////////
 	// TEST 1:	Create The FULL Tool bar, the drawing area and the status bar	
@@ -58,14 +58,9 @@ int main()
 	pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
 
 	//Drawing highlighted assignment statement
-	double dummy;
-	dummy = pIn->GetValue(pOut);
 	P.x = 100;	P.y = 400;
-	//pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, to_string(dummy) , true);
-	Point Q;
-	Q.x = P.x;
-	Q.y = P.y - 100;
-	pOut->DrawConnector(P,Q,1);
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI," ", true);
+	
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -83,6 +78,14 @@ int main()
 	pOut->PrintMessage("Drawing Conditional Statement, Click to continue");
 	
 	//TODO: Add code to draw different Conditional statements here
+	P.x = 100;	P.y = 100;
+	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "  = ");
+	P.x = 100;	P.y = 200;
+	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary = 3000");
+	P.x = 100;	P.y = 300;
+	pOut->DrawCondtionalStat(P, 90 , UI.ASSGN_HI, "");
+	P.x = 100;	P.y = 400;
+	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH , UI.ASSGN_HI, "guiuviyvuyuc",true);
 	
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -90,7 +93,6 @@ int main()
 	/// 2.4- Read statement test
 	//Drawing Read statements in all posible states
 	pOut->PrintMessage("Drawing Read Statement, Click to continue");
-	
 	//TODO: Add code to draw different Read statements here
 	
 	pIn->GetPointClicked(P);	//Wait for any click
@@ -99,9 +101,12 @@ int main()
 	/// 2.5- Write statement test
 	//Drawing Write statements in all posible states
 	pOut->PrintMessage("Drawing Write Statement, Click to continue");
+	P.x = 100;	P.y = 100;
+	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI,"increment");
 	
 	//TODO: Add code to draw different Write statements here
-	
+	P.x = 100;	P.y = 400;
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary");
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -111,7 +116,10 @@ int main()
 	pOut->PrintMessage("Drawing Start & End Statements, Click to continue");
 	
 	//TODO: Add code to draw different Start & End statements here
-	
+	P.x = 100;	P.y = 100;
+	pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI, false);
+	P.x = 100;	P.y = 500;
+	pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI, false);
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -119,6 +127,10 @@ int main()
 	/// 2.7- Connector test
 	//Drawing Connector in all posible states
 	pOut->PrintMessage("Drawing Connector, Click to continue");
+	Point Q;
+	Q.x = P.x;
+	Q.y = P.y + 100;
+	pOut->DrawConnector(P, Q, false);
 	
 	//TODO: Add code to draw different Connectors here
 	
@@ -136,8 +148,15 @@ int main()
 
 	//TODO: Add code here to 
 	// 1- Read a string from the user and print it
-
+	string out=pIn->GetString(pOut);
+	P.x = 100;	P.y = 100;
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, out, false);
+	
 	// 2- Read a double value from the user and print it
+	double dummy;
+	dummy = pIn->GetValue(pOut);
+	P.x = 100;	P.y = 400;
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, to_string(dummy), true);
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -158,7 +177,17 @@ int main()
 		{
 			case ADD_SMPL_ASSIGN:
 				pOut->PrintMessage("Action: add assignment statement , Click anywhere");
+				 pIn->GetPointClicked(P);
+				pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
 				break;
+
+			case START :
+				pOut->PrintMessage("Action: add start, Click anywhere");
+				pIn->GetPointClicked(P);
+				pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
+				break;
+
+
 
 			case ADD_CONDITION:
 				pOut->PrintMessage("Action: add conditional statement , Click anywhere");

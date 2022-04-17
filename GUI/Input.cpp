@@ -126,6 +126,7 @@ ActionType Input::GetUserAction() const
 			switch (ClickedItem)
 			{
 			case ITM_EXIT: return EXIT;
+			case ITM_START: return START;
 			case ITM_SMPL_ASSIGN: return ADD_SMPL_ASSIGN;
 			case ITM_COND: return ADD_CONDITION;
 			case ITM_COPY: return COPY;
