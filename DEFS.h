@@ -12,14 +12,15 @@ enum ActionType //The actions supported (you can add more if needed)
 	ADD_CONNECTOR, //Add a connector between two statements
 
 	EDIT_STAT,	//Edit a statement
-	
+
 	SELECT,		//Select a statement, a connector
 
 	DEL,		//Delete a figure(s)
 	MOVE,		//Move a figure(s)
 	RESIZE,		//Resize a figure(s)
-	START ,      //Add start
-
+	START,      //Add start
+	WRITE,		//Add write
+	END,
 	SAVE,		//Save the whole graph to a file
 	LOAD,		//Load a graph from a file
 	EXIT,		//Exit the application
@@ -51,6 +52,7 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_COND,		//conditional statement
 	ITM_CONNECTOR, //Connector
 	ITM_WRITE,      //Write
+	ITM_END,
 	ITM_COPY,			//Copy
 	ITM_CUT,			//Cut
 	ITM_PASTE,			//Paste

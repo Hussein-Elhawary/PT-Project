@@ -64,15 +64,16 @@ void Output::CreateDesignToolBar()
 	//You can draw the tool bar icons in any way you want.
 	pWind->DrawImage("images\\exit.jpg", 0, 0);//here to input image in the tool bar
 	pWind->DrawImage("images\\start.jpg", 50, 0);
-	pWind->DrawImage("images\\assign.jpg", 100, 0);
-	pWind->DrawImage("images\\condition.jpg", 150, 0);
-	pWind->DrawImage("images\\connector.jpg", 200, 0);
-	pWind->DrawImage("images\\end.jpg", 250, 0);
-	pWind->DrawImage("images\\copy.jpg", 300, 0);
-	pWind->DrawImage("images\\cut.jpg", 350, 0);
-	pWind->DrawImage("images\\paste.jpg", 400, 0);
-	pWind->DrawImage("images\\save.jpg", 450, 0);
-	pWind->DrawImage("images\\edit.jpg", 500, 0);
+	//pWind->DrawImage("images\\read.jpg", 100, 0);   
+	pWind->DrawImage("images\\assign.jpg", 150, 0);
+	pWind->DrawImage("images\\condition.jpg", 200, 0);
+	pWind->DrawImage("images\\connector.jpg", 250, 0);
+	pWind->DrawImage("images\\end.jpg", 300, 0);
+	pWind->DrawImage("images\\copy.jpg", 350, 0);
+	pWind->DrawImage("images\\cut.jpg", 400, 0);
+	pWind->DrawImage("images\\paste.jpg", 450, 0);
+	pWind->DrawImage("images\\save.jpg", 500, 0);
+	pWind->DrawImage("images\\edit.jpg", 550, 0);
 
 
 	//Draw a line under the toolbar

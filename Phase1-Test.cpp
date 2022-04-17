@@ -181,16 +181,18 @@ int main()
 				pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
 				break;
 
-			case START :
+			case START:
 				pOut->PrintMessage("Action: add start, Click anywhere");
 				pIn->GetPointClicked(P);
 				pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
 				break;
 
-
+			
 
 			case ADD_CONDITION:
 				pOut->PrintMessage("Action: add conditional statement , Click anywhere");
+				pIn->GetPointClicked(P);
+				pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
 				break;
 
 			case ADD_CONNECTOR:

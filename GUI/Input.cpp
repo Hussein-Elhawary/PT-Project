@@ -1,7 +1,6 @@
+
 #include "Input.h"
 #include "Output.h"
-
-
 
 
 Input::Input(window* pW)
@@ -129,6 +128,9 @@ ActionType Input::GetUserAction() const
 			case ITM_START: return START;
 			case ITM_SMPL_ASSIGN: return ADD_SMPL_ASSIGN;
 			case ITM_COND: return ADD_CONDITION;
+			case ITM_CONNECTOR: return ADD_CONNECTOR;
+			case ITM_WRITE: return WRITE;
+			case ITM_END: return END;
 			case ITM_COPY: return COPY;
 			case ITM_CUT: return CUT;
 			case ITM_PASTE: return PASTE;
