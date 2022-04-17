@@ -13,7 +13,7 @@ Output::Output()
 
 	UI.StBrWdth = 50;		//Status Bar Height
 	UI.TlBrWdth = 50;		//Tool Bar Height
-	UI.MnItWdth = 80;
+	UI.MnItWdth = 50;		
 
 	UI.DrawClr = BLUE;
 	UI.HiClr = RED;
@@ -62,23 +62,33 @@ void Output::CreateDesignToolBar()
 
 	//fill the tool bar 
 	//You can draw the tool bar icons in any way you want.
-	pWind->DrawImage("images\\DesignMenu.jpg", 0, 0);//here to input image in the tool bar
-	pWind->DrawImage("images\\copy.jpg", 240, 0);
-	pWind->DrawImage("images\\cut.jpg", 320, 0);
+	pWind->DrawImage("images\\exit.jpg", 0, 0);//here to input image in the tool bar
+	pWind->DrawImage("images\\start.jpg", 50, 0);
+	pWind->DrawImage("images\\assign.jpg", 100, 0);
+	pWind->DrawImage("images\\condition.jpg", 150, 0);
+	pWind->DrawImage("images\\connector.jpg", 200, 0);
+	pWind->DrawImage("images\\end.jpg", 250, 0);
+	pWind->DrawImage("images\\copy.jpg", 300, 0);
+	pWind->DrawImage("images\\cut.jpg", 350, 0);
 	pWind->DrawImage("images\\paste.jpg", 400, 0);
-	pWind->DrawImage("images\\save.jpg", 480, 0);
-	pWind->DrawImage("images\\edit.jpg", 560, 0);
+	pWind->DrawImage("images\\save.jpg", 450, 0);
+	pWind->DrawImage("images\\edit.jpg", 500, 0);
 
 
 	//Draw a line under the toolbar
 	pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);	
 	//here to draw line in the tool bar around images
-	pWind->DrawLine(320, UI.TlBrWdth, 320, 0);
+	pWind->DrawLine(50, UI.TlBrWdth, 50, 0);
+	pWind->DrawLine(100, UI.TlBrWdth, 100, 0);
+	pWind->DrawLine(150, UI.TlBrWdth, 150, 0);
+	pWind->DrawLine(200, UI.TlBrWdth, 200, 0);
+	pWind->DrawLine(250, UI.TlBrWdth, 250, 0);
+	pWind->DrawLine(300, UI.TlBrWdth, 300, 0);
+	pWind->DrawLine(350, UI.TlBrWdth, 350, 0);
 	pWind->DrawLine(400, UI.TlBrWdth, 400, 0);
-	pWind->DrawLine(480, UI.TlBrWdth, 480, 0);
-	pWind->DrawLine(560, UI.TlBrWdth, 560, 0);
-	pWind->DrawLine(640, UI.TlBrWdth, 640, 0);
-
+	pWind->DrawLine(450, UI.TlBrWdth, 450, 0);
+	pWind->DrawLine(500, UI.TlBrWdth, 500, 0);
+	pWind->DrawLine(550, UI.TlBrWdth, 550, 0);
 }
 
 

@@ -125,9 +125,9 @@ ActionType Input::GetUserAction() const
 			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
 			switch (ClickedItem)
 			{
+			case ITM_EXIT: return EXIT;
 			case ITM_SMPL_ASSIGN: return ADD_SMPL_ASSIGN;
 			case ITM_COND: return ADD_CONDITION;
-			case ITM_EXIT: return EXIT;
 			case ITM_COPY: return COPY;
 			case ITM_CUT: return CUT;
 			case ITM_PASTE: return PASTE;

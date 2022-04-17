@@ -41,11 +41,10 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you change the menu items order, change the order here too
+	ITM_EXIT,		//Exit
 	ITM_SMPL_ASSIGN,//simple assignment statement
 	ITM_COND,		//conditional statement
 
-
-	ITM_EXIT,		//Exit
 	
 	//TODO: Add more items names here
 	ITM_COPY,			//Copy
