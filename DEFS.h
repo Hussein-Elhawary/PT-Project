@@ -19,8 +19,9 @@ enum ActionType //The actions supported (you can add more if needed)
 	MOVE,		//Move a figure(s)
 	RESIZE,		//Resize a figure(s)
 	START,      //Add start
+	READ,		//Add read
 	WRITE,		//Add write
-	END,
+	END,		//Add end
 	SAVE,		//Save the whole graph to a file
 	LOAD,		//Load a graph from a file
 	EXIT,		//Exit the application
@@ -48,15 +49,15 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_EXIT,		//Exit
 	ITM_START,      //Start
 	ITM_READ,       //Read
+	ITM_WRITE,      //Write
 	ITM_SMPL_ASSIGN,//simple assignment statement
 	ITM_COND,		//conditional statement
-	ITM_CONNECTOR, //Connector
-	ITM_WRITE,      //Write
-	ITM_END,
-	ITM_COPY,			//Copy
-	ITM_CUT,			//Cut
-	ITM_PASTE,			//Paste
-	ITM_SAVE,			//Save
+	ITM_CONNECTOR,  //Connector
+	ITM_END,		//End
+	ITM_COPY,		//Copy
+	ITM_CUT,		//Cut
+	ITM_PASTE,		//Paste
+	ITM_SAVE,		//Save
 	ITM_EDIT_STAT,
 	
 	ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum

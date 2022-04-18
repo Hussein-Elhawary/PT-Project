@@ -129,6 +129,7 @@ ActionType Input::GetUserAction() const
 			case ITM_SMPL_ASSIGN: return ADD_SMPL_ASSIGN;
 			case ITM_COND: return ADD_CONDITION;
 			case ITM_CONNECTOR: return ADD_CONNECTOR;
+			case ITM_READ: return READ;
 			case ITM_WRITE: return WRITE;
 			case ITM_END: return END;
 			case ITM_COPY: return COPY;

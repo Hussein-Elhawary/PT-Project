@@ -92,21 +92,31 @@ int main()
 
 	/// 2.4- Read statement test
 	//Drawing Read statements in all posible states
-	pOut->PrintMessage("Drawing Read Statement, Click to continue");
 	//TODO: Add code to draw different Read statements here
+	pOut->PrintMessage("Drawing Read Statement, Click to continue");
+	P.x = 100;	P.y = 100;
+	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "price");
+	P.x = 100;	P.y = 200;
+	pOut->DrawRead(P, 70, 100, "price2");
+	P.x = 500;	P.y = 200;
+	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Selected Price",1);
+	
 	
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	/// 2.5- Write statement test
 	//Drawing Write statements in all posible states
-	pOut->PrintMessage("Drawing Write Statement, Click to continue");
-	P.x = 100;	P.y = 100;
-	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI,"increment");
-	
 	//TODO: Add code to draw different Write statements here
+	pOut->PrintMessage("Drawing Write Statement, Click to continue");
+	P.x = 100;	P.y = 250;
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Total");
 	P.x = 100;	P.y = 400;
-	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary");
+	pOut->DrawWrite(P, 70, 100, "Total2");
+	P.x = 500;	P.y = 200;
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Selected Total", 1);
+
+	
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -126,13 +136,56 @@ int main()
 
 	/// 2.7- Connector test
 	//Drawing Connector in all posible states
+	//TODO: Add code to draw different Connectors here
+
 	pOut->PrintMessage("Drawing Connector, Click to continue");
 	Point Q;
+	P.x = 50;
+	Q.x = P.x ;
+	Q.y = P.y + 100;
+	pOut->DrawConnector(P, Q, false);
+
+	P.x = 800;
 	Q.x = P.x;
+	Q.y = P.y + 100;
+	pOut->DrawConnector(Q, P, false);
+
+	P.x = 300;
+	P.y = 300;
+
+	Q.x = P.x +100;
+	Q.y +=100;
+	pOut->DrawConnector(Q, P, false);
+
+	P.x = 100;
+	P.y = 400;
+
+	Q.x = P.x+200;
+	Q.y = P.y;
+	pOut->DrawConnector(P, Q, false);
+
+	P.x = 550;
+	P.y = 260;
+
+	Q.x +=400;
 	Q.y = P.y + 100;
 	pOut->DrawConnector(P, Q, false);
 	
-	//TODO: Add code to draw different Connectors here
+	P.x = 100;
+	P.y = 400;
+
+	Q.x = P.x + 200;
+	Q.y = P.y;
+	pOut->DrawConnector(P, Q, false);
+	
+	P.x = 430;
+	P.y = 190;
+
+	Q.x += 40;
+	Q.y = P.y + 50;
+	pOut->DrawConnector(P, Q, false);
+	
+	
 	
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -178,7 +231,7 @@ int main()
 			case ADD_SMPL_ASSIGN:
 				pOut->PrintMessage("Action: add assignment statement , Click anywhere");
 				 pIn->GetPointClicked(P);
-				pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
+				pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI,pIn->GetString(pOut));
 				break;
 
 			case START:
@@ -187,16 +240,36 @@ int main()
 				pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
 				break;
 
-			
+			case END:
+				pOut->PrintMessage("Action: add end, Click anywhere");
+				pIn->GetPointClicked(P);
+				pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
+				break;
+
+			case READ:
+				pOut->PrintMessage("Action: add read, Click anywhere");
+				pIn->GetPointClicked(P);
+				pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI,pIn->GetString(pOut));
+				break;
+
+			case WRITE:
+				pOut->PrintMessage("Action: add write, Click anywhere");
+				pIn->GetPointClicked(P);
+				pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, pIn->GetString(pOut));
+				break;
+
 
 			case ADD_CONDITION:
 				pOut->PrintMessage("Action: add conditional statement , Click anywhere");
 				pIn->GetPointClicked(P);
-				pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
+				pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, pIn->GetString(pOut));
 				break;
 
 			case ADD_CONNECTOR:
-				pOut->PrintMessage("Action: add a connector , Click anywhere");
+				pOut->PrintMessage("Action: add a connector , Click twice to connect 2 points");
+				pIn->GetPointClicked(P);
+				pIn->GetPointClicked(Q);
+				pOut->DrawConnector(P,Q,0);
 				break;
 
 			case SELECT:
