@@ -305,31 +305,27 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 	
 
 	
-	if (Start.x == End.x && Start.y < End.y )
+	if ( Start.y < End.y )
 	{
 		pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
 		pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
 	}
-	else if (Start.x == End.x && Start.y > End.y)
+	else if ( Start.y > End.y)
 	{
 		pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
 		pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
 	}
-	else if (End.y == Start.y && Start.x > End.x)
+	else if (Start.x > End.x)
 		{
 			pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
 			pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
 		}
-	else if (End.y == Start.y && Start.x < End.x)
-		{
+	else 
+	{
 			pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
 			pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
-		}
-	else if (End.y > Start.y)
-	{
-		pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
-		pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
 	}
+	
 }
 
 void Output::DrawRead(Point Left, int width, int height, string Text, bool Selected)
