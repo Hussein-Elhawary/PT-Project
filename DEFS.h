@@ -31,7 +31,12 @@ enum ActionType //The actions supported (you can add more if needed)
 	SIM_MODE,	//Switch to simulatiom mode
 	COPY,		//Copy
 	CUT,		//Cut
-	PASTE		//Paste
+	PASTE,		//Paste
+	RUN,		//Run
+	BCTODSG,	//return back to design mode
+	FLTOCODE,	//flow chart to code
+	DEBUG,		//step by step run
+
 };
 
 enum  MODE	//Modes of operation
@@ -72,9 +77,10 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 	ITM_STP,	//Step by step
 	
 	//TODO:Add more items names here
-	
+
+	ITM_SIM_BCTODSG,//back to design mode
+	ITM_SIM_FLTOCODE,//flow chart to C++ code
 	ITM_SIM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
-	
 };
 
 

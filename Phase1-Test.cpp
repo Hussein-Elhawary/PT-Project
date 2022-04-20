@@ -2,7 +2,7 @@
 #include "GUI\Output.h"
 
 //This is a test code to test the Input and Output classes
-// Peter Ashraf
+//Peter Ashraf
 //Omar Elzahar 
 //Hussein Elhawary 
 //Youssef Zaki  
@@ -23,8 +23,8 @@ int main()
 	//pIn->GetValue(pOut);
 
 	///////////////////////////////////////////////////////////////////////////////////
-	// TEST 1:	Create The FULL Tool bar, the drawing area and the status bar	
-	//			This has already been done through the constrcutor of class Output
+	// TEST 1:	Create The FULL Tool bar, the drawing area and the status bar		 //
+	//			This has already been done through the constrcutor of class Output	 //
 	///////////////////////////////////////////////////////////////////////////////////
 
 	pOut->PrintMessage("TEST1: Drawing Tool bar and Status bar, Click anywhere to continue");
@@ -32,9 +32,9 @@ int main()
 
 	
 	///////////////////////////////////////////////////////////////////////////////////
-	// TEST 2:	Drawing all the Statements with all possible states:
-	//			Normal, highlighted, empty, filled with code
-	//			Also drawing connectors
+	// TEST 2:	Drawing all the Statements with all possible states:				 //
+	//			Normal, highlighted, empty, filled with code						 //
+	//			Also drawing connectors												 //
 	///////////////////////////////////////////////////////////////////////////////////
 	
 	pOut->PrintMessage("TEST2: Now we will show that Output class can draw any statement in any status, Click anywhere to continue");
@@ -230,7 +230,7 @@ int main()
 	pOut->ClearDrawArea();
 
 	///////////////////////////////////////////////////////////////////////////////////
-	// TEST 4: Check for the user action
+	// TEST 4: Check for the user action											 //
 	///////////////////////////////////////////////////////////////////////////////////
 	pOut->PrintMessage("TEST4: Testing Input ability to detect User Action, click anywhere");
 

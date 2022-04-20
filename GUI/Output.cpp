@@ -75,6 +75,7 @@ void Output::CreateDesignToolBar()
 	pWind->DrawImage("images\\paste.jpg", 500, 0);
 	pWind->DrawImage("images\\save.jpg", 550, 0);
 	pWind->DrawImage("images\\edit.jpg", 600, 0);
+	//pWind->DrawImage("images\\gotosim.jpg", 650, 0);	/// Zahaaar e3mel el go to simulation
 
 
 	//Draw a line under the toolbar
@@ -91,6 +92,9 @@ void Output::CreateDesignToolBar()
 	pWind->DrawLine(450, UI.TlBrWdth, 450, 0);
 	pWind->DrawLine(500, UI.TlBrWdth, 500, 0);
 	pWind->DrawLine(550, UI.TlBrWdth, 550, 0);
+	pWind->DrawLine(600, UI.TlBrWdth, 600, 0);
+	pWind->DrawLine(650, UI.TlBrWdth, 650, 0);
+
 }
 
 
@@ -98,6 +102,37 @@ void Output::CreateSimulationToolBar()
 {
 	UI.AppMode = SIMULATION;	//Simulation Mode
 	///TODO: add code to create the simulation tool bar
+	//SIMUATION Mode
+	int i = 0;
+
+	//fill the tool bar 
+	//You can draw the tool bar icons in any way you want.
+	//here to input image in the tool bar
+	pWind->DrawImage("images\\exit.jpg", 0, 0);
+	//pWind->DrawImage("images\\run.jpg", 50, 0);				/// Zahaaar e3mel el run
+	//pWind->DrawImage("images\\stepbysteprun.jpg", 100, 0);    /// Zahaaar e3mel el step by step run
+	//pWind->DrawImage("images\\flowtocode.jpg", 150, 0);		/// Zahaaar e3mel el flow to code
+	//pWind->DrawImage("images\\returntodesign.jpg", 200, 0);	///Zahaaar e3mel el return to design
+
+	
+
+
+	//Draw a line under the toolbar
+	pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);
+	//here to draw line in the tool bar around images
+	pWind->DrawLine(50, UI.TlBrWdth, 50, 0);
+	pWind->DrawLine(100, UI.TlBrWdth, 100, 0);
+	pWind->DrawLine(150, UI.TlBrWdth, 150, 0);
+	pWind->DrawLine(200, UI.TlBrWdth, 200, 0);
+	pWind->DrawLine(250, UI.TlBrWdth, 250, 0);
+	pWind->DrawLine(300, UI.TlBrWdth, 300, 0);
+	pWind->DrawLine(350, UI.TlBrWdth, 350, 0);
+	pWind->DrawLine(400, UI.TlBrWdth, 400, 0);
+	pWind->DrawLine(450, UI.TlBrWdth, 450, 0);
+	pWind->DrawLine(500, UI.TlBrWdth, 500, 0);
+	pWind->DrawLine(550, UI.TlBrWdth, 550, 0);
+	pWind->DrawLine(550, UI.TlBrWdth, 600, 0);
+	pWind->DrawLine(550, UI.TlBrWdth, 650, 0);
 
 	//Draw a line under the toolbar
 	pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);
@@ -133,8 +168,19 @@ void Output::PrintMessage(string msg)	//Prints a message on status bar
 //======================================================================================//
 
 //Draw assignment statement and write the "Text" on it
+void Output::ClickCheck(Point &Left, int width, int height)
+{
+	while (Left.y<UI.TlBrWdth || Left.y + height > UI.height - UI.StBrWdth || Left.x+width>UI.width-20 || Left.x - width/2 <0 +1)	//checks if the user clicks on the toolbar or the status bar
+	{
+		ClearStatusBar();	//First clear the status bar
+		pWind->DrawString(10, UI.height - (int)(UI.StBrWdth / 1.5), "Please press in a valid area (not on status bar nor on the toolbar and inside the screen)");
+		pWind->WaitMouseClick(Left.x, Left.y);
+	} 
+
+}
 void Output::DrawAssign(Point Left, int width, int height, string Text, bool Selected)
 {
+	ClickCheck(Left, width, height);
 
 	if(Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HiClr,3);	//use highlighting color
@@ -153,6 +199,8 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 
 void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, bool Selected )
 {
+	ClickCheck(Left, width, height);
+
 	if (Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
 	else
@@ -183,6 +231,8 @@ void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, 
 
 void Output::DrawStart(Point Left, int width, int height , bool Selected )
 {
+	ClickCheck(Left, width, height);
+
 	if (Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
 	else
@@ -198,6 +248,8 @@ void Output::DrawStart(Point Left, int width, int height , bool Selected )
 
 void Output::DrawEnd(Point Left, int width, int height,  bool Selected )
 {
+	ClickCheck(Left, width, height);
+
 	if (Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
 	else
@@ -214,6 +266,16 @@ void Output::DrawEnd(Point Left, int width, int height,  bool Selected )
 
 void Output::DrawConnector(Point Start, Point End, bool Selected)
 {
+	int height = abs(Start.y - End.y);
+	int width  = abs(Start.x - End.x);
+	while (Start.y<UI.TlBrWdth || Start.y + height > UI.height - UI.StBrWdth || Start.x + width > UI.width || Start.x - width / 2 < 0 || End.y<UI.TlBrWdth || End.y + height > UI.height - UI.StBrWdth || End.x + width > UI.width || Start.x - width / 2 < 0)	//checks if the user clicks on the toolbar or the status bar
+	{
+		ClearStatusBar();	//First clear the status bar
+		pWind->DrawString(10, UI.height - (int)(UI.StBrWdth / 1.5), "Please press start and end again in a valid area (not on status bar nor on the toolbar and inside the screen)");
+		pWind->WaitMouseClick(Start.x, Start.y);
+		pWind->WaitMouseClick(End.x, End.y);
+	}
+
 	drawstyle dsStyle = FRAME;
 	if (Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
@@ -253,6 +315,8 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 
 void Output::DrawRead(Point Left, int width, int height, string Text, bool Selected)
 {
+	ClickCheck(Left, width, height);
+
 	if (Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
 	else
@@ -288,6 +352,7 @@ void Output::DrawRead(Point Left, int width, int height, string Text, bool Selec
 }
 void Output::DrawWrite(Point Left, int width, int height, string Text, bool Selected)
 {
+	ClickCheck(Left, width, height);
 
 	if (Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
@@ -317,8 +382,14 @@ void Output::DrawWrite(Point Left, int width, int height, string Text, bool Sele
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
 	pWind->DrawString(Left.x + width / 3 - 5 * size(Text), Left.y + height / 2 - 10, Text);
+	pWind->DrawString(Left.x + width / 3 - 5 * size(Text), Left.y + height / 2 - 10, Text);
+
+}
 
 
+void  Output::WaitMouseClick(int& x, int& y)				//
+{
+	pWind->WaitMouseClick(x, y);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 Output::~Output()
