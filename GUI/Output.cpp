@@ -64,8 +64,8 @@ void Output::CreateDesignToolBar()
 	//You can draw the tool bar icons in any way you want.
 	pWind->DrawImage("images\\exit.jpg", 0, 0);//here to input image in the tool bar
 	pWind->DrawImage("images\\start.jpg", 50, 0);
-	//pWind->DrawImage("images\\read.jpg", 100, 0);     /// Zahaaar e3mel el read
-	//pWind->DrawImage("images\\write.jpg", 150, 0);	/// Zahaaar e3mel el write kaman
+	pWind->DrawImage("images\\read.jpg", 100, 0);     /// Zahaaar e3mel el read
+	pWind->DrawImage("images\\write.jpg", 150, 0);	/// Zahaaar e3mel el write kaman
 	pWind->DrawImage("images\\assign.jpg", 200, 0);
 	pWind->DrawImage("images\\condition.jpg", 250, 0);
 	pWind->DrawImage("images\\connector.jpg", 300, 0);
@@ -75,6 +75,9 @@ void Output::CreateDesignToolBar()
 	pWind->DrawImage("images\\paste.jpg", 500, 0);
 	pWind->DrawImage("images\\save.jpg", 550, 0);
 	pWind->DrawImage("images\\edit.jpg", 600, 0);
+	pWind->DrawImage("images\\zoomout.jpg", 650, 0);
+	pWind->DrawImage("images\\zoomin.jpg", 700, 0);
+
 	//pWind->DrawImage("images\\gotosim.jpg", 650, 0);	/// Zahaaar e3mel el go to simulation
 
 
@@ -94,6 +97,8 @@ void Output::CreateDesignToolBar()
 	pWind->DrawLine(550, UI.TlBrWdth, 550, 0);
 	pWind->DrawLine(600, UI.TlBrWdth, 600, 0);
 	pWind->DrawLine(650, UI.TlBrWdth, 650, 0);
+	pWind->DrawLine(700, UI.TlBrWdth, 700, 0);
+	pWind->DrawLine(750, UI.TlBrWdth, 750, 0);
 
 }
 
