@@ -175,6 +175,11 @@ void Output::ClickCheck(Point &Left, int width, int height)
 		ClearStatusBar();	//First clear the status bar
 		pWind->DrawString(10, UI.height - (int)(UI.StBrWdth / 1.5), "Please press in a valid area (not on status bar nor on the toolbar and inside the screen)");
 		pWind->WaitMouseClick(Left.x, Left.y);
+		if (Left.x > 0 && Left.x < UI.MnItWdth && Left.y > 0 && Left.y < UI.TlBrWdth)
+		{
+			int Zahar = 1;
+			exit(Zahar);		//this temrinates code if exit is pressed
+		}
 	} 
 
 }
@@ -272,6 +277,12 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 		pWind->DrawString(10, UI.height - (int)(UI.StBrWdth / 1.5), "Please press start and end again in a valid area (not on status bar nor on the toolbar and inside the screen)");
 		pWind->WaitMouseClick(Start.x, Start.y);
 		pWind->WaitMouseClick(End.x, End.y);
+		if (Start.x > 0 && Start.x < UI.MnItWdth && Start.y > 0 && Start.y < UI.TlBrWdth || End.x > 0 && End.x < UI.MnItWdth && End.y > 0 && End.y < UI.TlBrWdth)
+		{
+			int Zahar = 1;
+			exit(Zahar);	//this temrinates code if exit is pressed
+		}
+		
 	}
 
 	drawstyle dsStyle = FRAME;
