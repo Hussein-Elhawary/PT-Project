@@ -69,7 +69,22 @@ int main()
 	pOut->PrintMessage("Drawing other Assignment statements, Click to continue");
 
 	//TODO: Add code to draw other types of assignment statements here
-	
+	//Drawing empty assignment statement
+	P.x = 100;	P.y = 100;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "x = y");
+
+	//Drawing a resized empty assignment statement
+	P.x = 100;	P.y = 200;
+	pOut->DrawAssign(P, 80, UI.ASSGN_HI, "x = y + z ");
+
+	//Drawing edited (non-empty) assignment statement
+	P.x = 100;	P.y = 300;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "A = A - 1");
+
+	//Drawing highlighted assignment statement
+	P.x = 100;	P.y = 400;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "x = 2 / y ", true);
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -81,11 +96,11 @@ int main()
 	P.x = 100;	P.y = 100;
 	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "  = ");
 	P.x = 100;	P.y = 200;
-	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary = 3000");
+	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary < 3000");
 	P.x = 100;	P.y = 300;
 	pOut->DrawCondtionalStat(P, 90 , UI.ASSGN_HI, "");
 	P.x = 100;	P.y = 400;
-	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH , UI.ASSGN_HI, "guiuviyvuyuc",true);
+	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH , UI.ASSGN_HI, "x > y",true);
 	
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -98,7 +113,7 @@ int main()
 	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "price");
 	P.x = 100;	P.y = 200;
 	pOut->DrawRead(P, 70, 100, "price2");
-	P.x = 500;	P.y = 200;
+	P.x = 100;	P.y = 400;
 	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Selected Price",1);
 	
 	
@@ -109,11 +124,11 @@ int main()
 	//Drawing Write statements in all posible states
 	//TODO: Add code to draw different Write statements here
 	pOut->PrintMessage("Drawing Write Statement, Click to continue");
-	P.x = 100;	P.y = 250;
+	P.x = 100;	P.y = 150;
 	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Total");
-	P.x = 100;	P.y = 400;
-	pOut->DrawWrite(P, 70, 100, "Total2");
-	P.x = 500;	P.y = 200;
+	P.x = 100;	P.y = 300;
+	pOut->DrawWrite(P, 100, 100, "Total2");
+	P.x = 100;	P.y = 500;
 	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Selected Total", 1);
 
 	
@@ -128,7 +143,7 @@ int main()
 	//TODO: Add code to draw different Start & End statements here
 	P.x = 100;	P.y = 100;
 	pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI, false);
-	P.x = 100;	P.y = 500;
+	P.x = 100;	P.y = 300;
 	pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI, false);
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();

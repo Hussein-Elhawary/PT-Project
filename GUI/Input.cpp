@@ -18,6 +18,7 @@ string Input::GetString(Output *pO) const
 {
 	string Str;
 	char Key;
+	pO->PrintMessage("Please enter your text");
 	while(1)
 	{
 		pWind->WaitKeyPress(Key);
