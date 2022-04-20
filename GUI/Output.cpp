@@ -266,9 +266,7 @@ void Output::DrawEnd(Point Left, int width, int height,  bool Selected )
 
 void Output::DrawConnector(Point Start, Point End, bool Selected)
 {
-	int height = abs(Start.y - End.y);
-	int width  = abs(Start.x - End.x);
-	while (Start.y<UI.TlBrWdth || Start.y + height > UI.height - UI.StBrWdth || Start.x + width > UI.width || Start.x - width / 2 < 0 || End.y<UI.TlBrWdth || End.y + height > UI.height - UI.StBrWdth || End.x + width > UI.width || Start.x - width / 2 < 0)	//checks if the user clicks on the toolbar or the status bar
+	while (Start.y<UI.TlBrWdth || Start.y > UI.height - UI.StBrWdth || End.y<UI.TlBrWdth || End.y > UI.height - UI.StBrWdth)	//checks if the user clicks on the toolbar or the status bar
 	{
 		ClearStatusBar();	//First clear the status bar
 		pWind->DrawString(10, UI.height - (int)(UI.StBrWdth / 1.5), "Please press start and end again in a valid area (not on status bar nor on the toolbar and inside the screen)");
@@ -387,7 +385,7 @@ void Output::DrawWrite(Point Left, int width, int height, string Text, bool Sele
 }
 
 
-void  Output::WaitMouseClick(int& x, int& y)				//
+void  Output::WaitMouseClick(int& x, int& y)				//this waits for for mouse click 
 {
 	pWind->WaitMouseClick(x, y);
 }
