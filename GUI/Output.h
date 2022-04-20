@@ -34,7 +34,7 @@ public:
 	void DrawConnector(Point Start , Point End, bool Selected);										//
 	void DrawRead(Point Left, int width, int height, string Text, bool Selected = false);			//
 	void DrawWrite(Point Left, int width, int height, string Text, bool Selected = false);			//
-	void WaitMouseClick(int& x, int& y);																//
+    void WaitMouseClick(int& x, int& y);																//
 	void ClickCheck(Point &Left, int width, int height);																									//
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 		

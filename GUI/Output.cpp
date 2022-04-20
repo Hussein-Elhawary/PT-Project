@@ -296,8 +296,13 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 	{
 		End.x = Start.x;
 	}
-	pWind->DrawLine(Start.x, Start.y, Start.x, End.y, dsStyle);
-	pWind->DrawLine(Start.x, End.y, End.x, End.y, dsStyle);
+	if (abs(Start.y - End.y) < 20)
+	{
+		End.y = Start.y;
+	}
+	pWind->DrawLine(Start.x, Start.y, End.x, Start.y, dsStyle);
+	pWind->DrawLine(End.x, Start.y, End.x, End.y, dsStyle);
+	
 
 	
 	if (Start.x == End.x && Start.y < End.y )
@@ -310,16 +315,21 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 		pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
 		pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
 	}
-	else if (End.x > Start.x)
+	else if (End.y == Start.y && Start.x > End.x)
 		{
-			pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
-			pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
-		}
-	else
-		{
-			pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
 			pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
+			pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
 		}
+	else if (End.y == Start.y && Start.x < End.x)
+		{
+			pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
+			pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
+		}
+	else if (End.y > Start.y)
+	{
+		pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
+		pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
+	}
 }
 
 void Output::DrawRead(Point Left, int width, int height, string Text, bool Selected)
