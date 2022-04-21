@@ -287,7 +287,7 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 			int Zahar = 1;
 			exit(Zahar);	//this temrinates code if exit is pressed
 		}
-		
+
 	}
 
 	drawstyle dsStyle = FRAME;
@@ -305,32 +305,71 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 	{
 		End.y = Start.y;
 	}
-	pWind->DrawLine(Start.x, Start.y, End.x, Start.y, dsStyle);
-	pWind->DrawLine(End.x, Start.y, End.x, End.y, dsStyle);
-	
+	int i = 0;
+	bool check = false;
+	int arrowdirection = 0;
+	color white(255,255,255);
+	while (check == false)
+	{
+		color widthcolor;
+		widthcolor = pWind->GetColor(End.x + i, End.y);
+		color heightcolor;
+		heightcolor = pWind->GetColor(End.x, End.y + i);
+		if (heightcolor.ucRed == white.ucRed && heightcolor.ucBlue == white.ucBlue && heightcolor.ucGreen == white.ucGreen &&( widthcolor.ucRed != white.ucRed || widthcolor.ucBlue != white.ucBlue || widthcolor.ucGreen != white.ucGreen))
+		{
+			arrowdirection = 0;			//downright
+			check = true;
+		}
+		else if (widthcolor.ucRed == white.ucRed && widthcolor.ucBlue == white.ucBlue && widthcolor.ucGreen == white.ucGreen &&(heightcolor.ucRed != white.ucRed || heightcolor.ucBlue != white.ucBlue || heightcolor.ucGreen != white.ucGreen))
+		{
+			arrowdirection = 1;			//rightdown
+			check = true;
+		}
+		i++;
+	}
 
-	
-	if ( Start.y < End.y )
+	if (arrowdirection == 0)
+	{
+		pWind->DrawLine(Start.x, Start.y, Start.x, End.y, dsStyle);
+		pWind->DrawLine (Start.x, End.y, End.x, End.y, dsStyle);
+	}
+	else if(arrowdirection == 1)
+	{
+		pWind->DrawLine(Start.x, Start.y, End.x, Start.y, dsStyle);
+		pWind->DrawLine(End.x, Start.y, End.x, End.y, dsStyle);
+	}
+
+	if (Start.y == End.y && Start.x > End.x)
 	{
 		pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
 		pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
 	}
-	else if ( Start.y > End.y)
+	else if (Start.y == End.y && Start.x < End.x)
 	{
 		pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
 		pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
 	}
-	else if (Start.x > End.x)
-		{
-			pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
-			pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
-		}
-	else 
+	else if (Start.x == End.x && Start.y > End.y)
 	{
-			pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
-			pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
+		pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
+		pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
 	}
-	
+	else if (Start.x == End.x && Start.y < End.y)
+	{
+		pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
+		pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
+	}
+	else if (Start.x > End.x && arrowdirection == 0)
+	{
+		pWind->DrawLine(End.x, End.y, End.x + 10, End.y + 10, dsStyle);
+		pWind->DrawLine(End.x, End.y, End.x + 10, End.y - 10, dsStyle);
+	}
+	else if (Start.x > End.x && arrowdirection == 1)
+	{
+		pWind->DrawLine(End.x, End.y, End.x - 10, End.y - 10, dsStyle);
+		pWind->DrawLine(End.x, End.y, End.x - 10, End.y + 10, dsStyle);
+	}
+
 }
 
 void Output::DrawRead(Point Left, int width, int height, string Text, bool Selected)
@@ -410,6 +449,12 @@ void Output::DrawWrite(Point Left, int width, int height, string Text, bool Sele
 void  Output::WaitMouseClick(int& x, int& y)				//this waits for for mouse click 
 {
 	pWind->WaitMouseClick(x, y);
+}
+
+color Output::Getcolour(int x, int y)
+{
+	color dummy =pWind->GetColor(x,y);
+	return dummy;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 Output::~Output()

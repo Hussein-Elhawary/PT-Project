@@ -61,7 +61,6 @@ int main()
 	P.x = 100;	P.y = 400;
 	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI," ", true);
 	
-
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -225,7 +224,6 @@ int main()
 	dummy = pIn->GetValue(pOut);
 	P.x = 100;	P.y = 400;
 	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, to_string(dummy), true);
-
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
