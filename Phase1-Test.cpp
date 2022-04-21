@@ -68,17 +68,17 @@ int main()
 	pOut->PrintMessage("Drawing other Assignment statements, Click to continue");
 
 	//TODO: Add code to draw other types of assignment statements here
-	//Drawing empty assignment statement
+	//Drawing an assignment statement
 	P.x = 100;	P.y = 100;
 	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "x = y");
 
-	//Drawing a resized empty assignment statement
+	//Drawing a resized assignment statement
 	P.x = 100;	P.y = 200;
 	pOut->DrawAssign(P, 80, UI.ASSGN_HI, "x = y + z ");
 
 	//Drawing edited (non-empty) assignment statement
 	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "A = A - 1");
+	pOut->DrawAssign(P, 90, UI.ASSGN_HI, "A = A - 1");
 
 	//Drawing highlighted assignment statement
 	P.x = 100;	P.y = 400;
