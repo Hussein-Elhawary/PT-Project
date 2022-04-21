@@ -64,8 +64,8 @@ void Output::CreateDesignToolBar()
 	//You can draw the tool bar icons in any way you want.
 	pWind->DrawImage("images\\exit.jpg", 0, 0);//here to input image in the tool bar
 	pWind->DrawImage("images\\start.jpg", 50, 0);
-	pWind->DrawImage("images\\read.jpg", 100, 0);     /// Zahaaar e3mel el read
-	pWind->DrawImage("images\\write.jpg", 150, 0);	/// Zahaaar e3mel el write kaman
+	pWind->DrawImage("images\\read1.jpg", 100, 0);     /// Zahaaar e3mel el read
+	pWind->DrawImage("images\\write1.jpg", 150, 0);	/// Zahaaar e3mel el write kaman
 	pWind->DrawImage("images\\assign.jpg", 200, 0);
 	pWind->DrawImage("images\\condition.jpg", 250, 0);
 	pWind->DrawImage("images\\connector.jpg", 300, 0);
