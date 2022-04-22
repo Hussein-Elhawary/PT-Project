@@ -77,8 +77,7 @@ void Output::CreateDesignToolBar()
 	pWind->DrawImage("images\\edit.jpg", 600, 0);
 	pWind->DrawImage("images\\zoomout.jpg", 650, 0);
 	pWind->DrawImage("images\\zoomin.jpg", 700, 0);
-
-	//pWind->DrawImage("images\\gotosim.jpg", 650, 0);	/// Zahaaar e3mel el go to simulation
+	pWind->DrawImage("images\\gotosim.jpg", 750, 0);	
 
 
 	//Draw a line under the toolbar
