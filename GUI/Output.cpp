@@ -99,8 +99,8 @@ void Output::CreateDesignToolBar()
 	pWind->DrawLine(650, UI.TlBrWdth, 650, 0);
 	pWind->DrawLine(700, UI.TlBrWdth, 700, 0);
 	pWind->DrawLine(750, UI.TlBrWdth, 750, 0);
-	pWind->DrawLine(750, UI.TlBrWdth, 800, 0);
-	pWind->DrawLine(750, UI.TlBrWdth, 850, 0);
+	pWind->DrawLine(800, UI.TlBrWdth, 800, 0);
+	pWind->DrawLine(850, UI.TlBrWdth, 850, 0);
 
 }
 
@@ -110,7 +110,6 @@ void Output::CreateSimulationToolBar()
 	UI.AppMode = SIMULATION;	//Simulation Mode
 	///TODO: add code to create the simulation tool bar
 	//SIMUATION Mode
-	int i = 0;
 
 	//fill the tool bar 
 	//You can draw the tool bar icons in any way you want.
@@ -132,14 +131,14 @@ void Output::CreateSimulationToolBar()
 	pWind->DrawLine(150, UI.TlBrWdth, 150, 0);
 	pWind->DrawLine(200, UI.TlBrWdth, 200, 0);
 	pWind->DrawLine(250, UI.TlBrWdth, 250, 0);
-	pWind->DrawLine(300, UI.TlBrWdth, 300, 0);
-	pWind->DrawLine(350, UI.TlBrWdth, 350, 0);
-	pWind->DrawLine(400, UI.TlBrWdth, 400, 0);
-	pWind->DrawLine(450, UI.TlBrWdth, 450, 0);
-	pWind->DrawLine(500, UI.TlBrWdth, 500, 0);
-	pWind->DrawLine(550, UI.TlBrWdth, 550, 0);
-	pWind->DrawLine(550, UI.TlBrWdth, 600, 0);
-	pWind->DrawLine(550, UI.TlBrWdth, 650, 0);
+	//pWind->DrawLine(300, UI.TlBrWdth, 300, 0);
+	//pWind->DrawLine(350, UI.TlBrWdth, 350, 0);
+	//pWind->DrawLine(400, UI.TlBrWdth, 400, 0);
+	//pWind->DrawLine(450, UI.TlBrWdth, 450, 0);
+	//pWind->DrawLine(500, UI.TlBrWdth, 500, 0);
+	//pWind->DrawLine(550, UI.TlBrWdth, 550, 0);
+	//pWind->DrawLine(550, UI.TlBrWdth, 600, 0);
+	//pWind->DrawLine(550, UI.TlBrWdth, 650, 0);
 
 	//Draw a line under the toolbar
 	pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);

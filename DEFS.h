@@ -66,8 +66,10 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_PASTE,		  //Paste
 	ITM_SAVE,		  //Save
 	ITM_EDIT_STAT,	  //Edit statment
+	ITM_MOVE,		  //MOVE
 	ITM_ZOOM_OUT,	  //Zoom out
 	ITM_ZOOM_IN,	  //Zoom in
+	ITM_SIM_MODE,	  //Switch to simulatiom mode
 	ITM_DSN_CNT		  //no. of design menu items ==> This should be the last line in this enum
 	
 };
