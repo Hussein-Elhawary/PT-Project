@@ -138,6 +138,8 @@ ActionType Input::GetUserAction() const
 			case ITM_PASTE: return PASTE;
 			case ITM_SAVE: return SAVE;
 			case ITM_EDIT_STAT: return EDIT_STAT;
+			case ITM_ZOOM_OUT: return ZOOM_OUT;
+			case ITM_ZOOM_IN: return ZOOM_IN;
 
 			default: return DSN_TOOL;
 			}

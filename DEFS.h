@@ -32,7 +32,8 @@ enum ActionType //The actions supported (you can add more if needed)
 	COPY,		//Copy
 	CUT,		//Cut
 	PASTE,		//Paste
-	
+	ZOOM_OUT,	//Zoom out
+	ZOOM_IN,	//Zoom in
 	RUN,		//Run
 	BCTODSG,	//return back to design mode
 	FLTOCODE,	//flow chart to code
@@ -65,7 +66,8 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_PASTE,		  //Paste
 	ITM_SAVE,		  //Save
 	ITM_EDIT_STAT,	  //Edit statment
-	
+	ITM_ZOOM_OUT,	  //Zoom out
+	ITM_ZOOM_IN,	  //Zoom in
 	ITM_DSN_CNT		  //no. of design menu items ==> This should be the last line in this enum
 	
 };
