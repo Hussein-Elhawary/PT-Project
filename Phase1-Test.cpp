@@ -215,15 +215,15 @@ int main()
 
 	//TODO: Add code here to 
 	// 1- Read a string from the user and print it
-	string out=pIn->GetString(pOut);
+	string text=pIn->GetString(pOut);
 	P.x = 100;	P.y = 100;
-	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, out, false);
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, text, false);
 	
 	// 2- Read a double value from the user and print it
-	double dummy;
-	dummy = pIn->GetValue(pOut);
+	double D;
+	D = pIn->GetValue(pOut);
 	P.x = 100;	P.y = 400;
-	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, to_string(dummy), true);
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, to_string(D), true);
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
