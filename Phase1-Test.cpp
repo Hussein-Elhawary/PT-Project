@@ -59,7 +59,7 @@ int main()
 
 	//Drawing highlighted assignment statement
 	P.x = 100;	P.y = 400;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI," ", true);
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI," = ", true);
 	
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -68,20 +68,17 @@ int main()
 	pOut->PrintMessage("Drawing other Assignment statements, Click to continue");
 
 	//TODO: Add code to draw other types of assignment statements here
-	//Drawing an assignment statement
+	//Drawing a Variable assignment statement
 	P.x = 100;	P.y = 100;
 	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "x = y");
 
-	//Drawing a resized assignment statement
+	//Drawing a resized Single Operator  assignment statement
 	P.x = 100;	P.y = 200;
 	pOut->DrawAssign(P, 80, UI.ASSGN_HI, "x = y + z ");
 
-	//Drawing edited (non-empty) assignment statement
-	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P, 90, UI.ASSGN_HI, "A = A - 1");
 
-	//Drawing highlighted assignment statement
-	P.x = 100;	P.y = 400;
+	//Drawing highlighted Single Operator  assignment statement
+	P.x = 100;	P.y = 300;
 	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "x = 2 / y ", true);
 
 	pIn->GetPointClicked(P);	//Wait for any click
@@ -92,12 +89,16 @@ int main()
 	pOut->PrintMessage("Drawing Conditional Statement, Click to continue");
 	
 	//TODO: Add code to draw different Conditional statements here
+	//Drawing an empty conditional statment
 	P.x = 100;	P.y = 100;
-	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "  = ");
+	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "   ");
+	//Drawing edited (non-empty) conditional statement
 	P.x = 100;	P.y = 200;
 	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary < 3000");
+	//Drawing edited (non-empty) and resized conditional statement
 	P.x = 100;	P.y = 300;
 	pOut->DrawCondtionalStat(P, 90 , UI.ASSGN_HI, "");
+	//Drawing edited (non-empty) and highlighted conditional statement
 	P.x = 100;	P.y = 400;
 	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH , UI.ASSGN_HI, "x > y",true);
 	
@@ -108,12 +109,18 @@ int main()
 	//Drawing Read statements in all posible states
 	//TODO: Add code to draw different Read statements here
 	pOut->PrintMessage("Drawing Read Statement, Click to continue");
+	//Drawing empty read statement
 	P.x = 100;	P.y = 100;
-	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "price");
+	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "");
+	//Drawing a resized empty read statement
 	P.x = 100;	P.y = 200;
-	pOut->DrawRead(P, 70, 100, "price2");
-	P.x = 100;	P.y = 400;
-	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Selected Price",1);
+	pOut->DrawRead(P, 70, 100, "");
+	//Drawing edited (non-empty) read statement
+	P.x = 100;	P.y = 350;
+	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Price");
+	//Drawing highlighted read statement
+	P.x = 100;	P.y = 450;
+	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary",1);
 	
 	
 	pIn->GetPointClicked(P);	//Wait for any click
@@ -122,13 +129,19 @@ int main()
 	/// 2.5- Write statement test
 	//Drawing Write statements in all posible states
 	//TODO: Add code to draw different Write statements here
-	pOut->PrintMessage("Drawing Write Statement, Click to continue");
-	P.x = 100;	P.y = 150;
+	pOut->PrintMessage("Drawing Read Statement, Click to continue");
+	//Drawing empty write statement
+	P.x = 100;	P.y = 100;
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "");
+	//Drawing a resized empty write statement
+	P.x = 100;	P.y = 200;
+	pOut->DrawWrite(P, 70, 100, "");
+	//Drawing edited (non-empty) write statement
+	P.x = 100;	P.y = 350;
 	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Total");
-	P.x = 100;	P.y = 300;
-	pOut->DrawWrite(P, 100, 100, "Total2");
-	P.x = 100;	P.y = 500;
-	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Selected Total", 1);
+	//Drawing highlighted Write statement
+	P.x = 100;	P.y = 450;
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Average",1);
 
 	
 	pIn->GetPointClicked(P);	//Wait for any click
@@ -140,10 +153,25 @@ int main()
 	pOut->PrintMessage("Drawing Start & End Statements, Click to continue");
 	
 	//TODO: Add code to draw different Start & End statements here
+	//Drawing a start statment
 	P.x = 100;	P.y = 100;
 	pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI, false);
+	//Drawing a resized start statment
+	P.x = 300;	P.y = 100;
+	pOut->DrawStart(P, 100, UI.ASSGN_HI, false);
+	//Drawing a highlighted start statment
+	P.x = 500;	P.y = 100;
+	pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI, true);
+	//Drawing an end statment
 	P.x = 100;	P.y = 300;
 	pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI, false);
+	//Drawing a resized End statment
+	P.x = 300;	P.y = 300;
+	pOut->DrawEnd(P, 100, UI.ASSGN_HI, false);
+	//Drawing a highlighted End statment
+	P.x = 500;	P.y = 300;
+	pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI, true);
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
