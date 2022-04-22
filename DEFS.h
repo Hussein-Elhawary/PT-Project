@@ -32,6 +32,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	COPY,		//Copy
 	CUT,		//Cut
 	PASTE,		//Paste
+	
 	RUN,		//Run
 	BCTODSG,	//return back to design mode
 	FLTOCODE,	//flow chart to code
@@ -51,21 +52,21 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	//Note: Items are ordered here as they appear in menu
 	//If you change the menu items order, change the order here too
 	//TODO: Add more items names here
-	ITM_EXIT,		//Exit
-	ITM_START,      //Start
-	ITM_READ,       //Read
-	ITM_WRITE,      //Write
-	ITM_SMPL_ASSIGN,//simple assignment statement
-	ITM_COND,		//conditional statement
-	ITM_CONNECTOR,  //Connector
-	ITM_END,		//End
-	ITM_COPY,		//Copy
-	ITM_CUT,		//Cut
-	ITM_PASTE,		//Paste
-	ITM_SAVE,		//Save
-	ITM_EDIT_STAT,
+	ITM_EXIT,		  //Exit
+	ITM_START,        //Start
+	ITM_READ,         //Read
+	ITM_WRITE,        //Write
+	ITM_SMPL_ASSIGN,  //simple assignment statement
+	ITM_COND,		  //conditional statement
+	ITM_CONNECTOR,    //Connector
+	ITM_END,		  //End
+	ITM_COPY,		  //Copy
+	ITM_CUT,		  //Cut
+	ITM_PASTE,		  //Paste
+	ITM_SAVE,		  //Save
+	ITM_EDIT_STAT,	  //Edit statment
 	
-	ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum
+	ITM_DSN_CNT		  //no. of design menu items ==> This should be the last line in this enum
 	
 };
 

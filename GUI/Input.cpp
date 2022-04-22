@@ -8,31 +8,31 @@ Input::Input(window* pW)
 	pWind = pW; //point to the passed window
 }
 
-void Input::GetPointClicked(Point &P) const
+void Input::GetPointClicked(Point& P) const
 {
 	pWind->WaitMouseClick(P.x, P.y);	//Wait for mouse click
 }
 
 
-string Input::GetString(Output *pO) const 
+string Input::GetString(Output* pO) const
 {
 	string Str;
 	char Key;
 	pO->PrintMessage("Please enter your text");
-	while(1)
+	while (1)
 	{
 		pWind->WaitKeyPress(Key);
-		if(Key == 27 )	//ESCAPE key is pressed
+		if (Key == 27)	//ESCAPE key is pressed
 			return "";	//returns nothing as user has cancelled label
-		if(Key == 13 )	//ENTER key is pressed
+		if (Key == 13)	//ENTER key is pressed
 			return Str;
-		if(Key == 8 )	//BackSpace is pressed
-			Str.resize(Str.size() -1 );			
+		if (Key == 8)	//BackSpace is pressed
+			Str.resize(Str.size() - 1);
 		else
 			Str += Key;
 		pO->PrintMessage(Str);
 	}
-	
+
 }
 
 double Input::GetValue(Output* pO) const	// Reads a double value from the user 
@@ -42,7 +42,7 @@ double Input::GetValue(Output* pO) const	// Reads a double value from the user
 	string str;
 	char st;
 	pO->PrintMessage("Please enter a value");
-	
+
 	while (1)
 	{
 		pWind->WaitKeyPress(st);
@@ -61,7 +61,7 @@ double Input::GetValue(Output* pO) const	// Reads a double value from the user
 	}
 
 	//Read a double value from the user
-	
+
 	return D;
 }
 
@@ -107,17 +107,17 @@ double Input::GetValue(Output* pO) const	// Reads a double value from the user
 //
 
 ActionType Input::GetUserAction() const
-{	
+{
 	//This function reads the position where the user clicks to determine the desired action
 
-	int x,y;
+	int x, y;
 	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
 
-	if(UI.AppMode == DESIGN )	//application is in design mode
+	if (UI.AppMode == DESIGN)	//application is in design mode
 	{
 		//[1] If user clicks on the Toolbar
-		if ( y >= 0 && y < UI.TlBrWdth)
-		{	
+		if (y >= 0 && y < UI.TlBrWdth)
+		{
 			//Check whick Menu item was clicked
 			//This assumes that menu items are lined up horizontally
 			int ClickedItem = (x / UI.MnItWdth);
@@ -142,13 +142,13 @@ ActionType Input::GetUserAction() const
 			default: return DSN_TOOL;
 			}
 		}
-	
+
 		//[2] User clicks on the drawing area
-		if ( y >= UI.TlBrWdth && y < UI.height - UI.StBrWdth)
+		if (y >= UI.TlBrWdth && y < UI.height - UI.StBrWdth)
 		{
 			return SELECT;	//user want to select/unselect a statement in the flowchart
 		}
-		
+
 		//[3] User clicks on the status bar
 		return STATUS;
 	}
@@ -162,3 +162,4 @@ ActionType Input::GetUserAction() const
 Input::~Input()
 {
 }
+//

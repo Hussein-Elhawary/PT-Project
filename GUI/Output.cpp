@@ -7,13 +7,13 @@ Output::Output()
 	UI.width = 900;
 	UI.height = 700;
 	UI.wx = 15;
-	UI.wy =15;
+	UI.wy = 15;
 
 	UI.AppMode = DESIGN;	//Design Mode is the default mode
 
 	UI.StBrWdth = 50;		//Status Bar Height
 	UI.TlBrWdth = 50;		//Tool Bar Height
-	UI.MnItWdth = 50;		
+	UI.MnItWdth = 50;
 
 	UI.DrawClr = BLUE;
 	UI.HiClr = RED;
@@ -22,12 +22,12 @@ Output::Output()
 	UI.ASSGN_WDTH = 150;
 	UI.ASSGN_HI = 50;
 
-	//Create the output window
+	////Create the output window
 	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);
 	//Change the title
 	pWind->ChangeTitle("Programming Techniques Project");
-	
-	pWind->SetPen(RED,3); ///////*****************
+
+	pWind->SetPen(RED, 3); ///////*****************
 	CreateDesignToolBar();
 	CreateStatusBar();
 }
@@ -50,7 +50,7 @@ window* Output::CreateWind(int wd, int h, int x, int y)
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::CreateStatusBar()
 {
-	pWind->DrawLine(0, UI.height-UI.StBrWdth, UI.width, UI.height-UI.StBrWdth);
+	pWind->DrawLine(0, UI.height - UI.StBrWdth, UI.width, UI.height - UI.StBrWdth);
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ void Output::CreateStatusBar()
 void Output::CreateDesignToolBar()
 {
 	UI.AppMode = DESIGN;	//Design Mode
-	int i=0;	
+	int i = 0;
 
 	//fill the tool bar 
 	//You can draw the tool bar icons in any way you want.
@@ -82,7 +82,7 @@ void Output::CreateDesignToolBar()
 
 
 	//Draw a line under the toolbar
-	pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);	
+	pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);
 	//here to draw line in the tool bar around images
 	pWind->DrawLine(50, UI.TlBrWdth, 50, 0);
 	pWind->DrawLine(100, UI.TlBrWdth, 100, 0);
@@ -119,7 +119,7 @@ void Output::CreateSimulationToolBar()
 	//pWind->DrawImage("images\\flowtocode.jpg", 150, 0);		/// Zahaaar e3mel el flow to code
 	//pWind->DrawImage("images\\returntodesign.jpg", 200, 0);	///Zahaaar e3mel el return to design
 
-	
+
 
 
 	//Draw a line under the toolbar
@@ -156,16 +156,16 @@ void Output::ClearDrawArea()
 	pWind->SetPen(RED, 1);
 	pWind->SetBrush(WHITE);
 	pWind->DrawRectangle(0, UI.TlBrWdth, UI.width, UI.height - UI.StBrWdth);
-	
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::PrintMessage(string msg)	//Prints a message on status bar
 {
 	ClearStatusBar();	//First clear the status bar
-	
+
 	pWind->SetPen(UI.MsgClr, 50);
-	pWind->SetFont(20, BOLD , BY_NAME, "Times New Romans");   //formatting font style from arial
-	pWind->DrawString(10, UI.height - (int) (UI.StBrWdth/1.5), msg);
+	pWind->SetFont(20, BOLD, BY_NAME, "Times New Romans");   //formatting font style from arial
+	pWind->DrawString(10, UI.height - (int)(UI.StBrWdth / 1.5), msg);
 }
 
 //======================================================================================//
@@ -173,9 +173,9 @@ void Output::PrintMessage(string msg)	//Prints a message on status bar
 //======================================================================================//
 
 //Draw assignment statement and write the "Text" on it
-void Output::ClickCheck(Point &Left, int width, int height)
+void Output::ClickCheck(Point& Left, int width, int height)
 {
-	while (Left.y<UI.TlBrWdth || Left.y + height > UI.height - UI.StBrWdth || Left.x+width>UI.width-20 || Left.x - width/2 <0 +1)	//checks if the user clicks on the toolbar or the status bar
+	while (Left.y<UI.TlBrWdth || Left.y + height > UI.height - UI.StBrWdth || Left.x + width > UI.width - 20 || Left.x - width / 2 < 0 + 1)	//checks if the user clicks on the toolbar or the status bar
 	{
 		ClearStatusBar();	//First clear the status bar
 		pWind->DrawString(10, UI.height - (int)(UI.StBrWdth / 1.5), "Please press in a valid area (not on status bar nor on the toolbar and inside the screen)");
@@ -185,29 +185,29 @@ void Output::ClickCheck(Point &Left, int width, int height)
 			int Zahar = 1;
 			exit(Zahar);		//this temrinates code if exit is pressed
 		}
-	} 
+	}
 
 }
 void Output::DrawAssign(Point Left, int width, int height, string Text, bool Selected)
 {
 	ClickCheck(Left, width, height);
 
-	if(Selected)	//if stat is selected, it should be highlighted
-		pWind->SetPen(UI.HiClr,3);	//use highlighting color
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HiClr, 3);	//use highlighting color
 	else
-		pWind->SetPen(UI.DrawClr,3);	//use normal color
+		pWind->SetPen(UI.DrawClr, 3);	//use normal color
 	width += 3 * size(Text);
 	//Draw the statement block rectangle
 	pWind->DrawRectangle(Left.x, Left.y, Left.x + width, Left.y + height);
-		
+
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x+width/3 - 2*size(Text), Left.y + height / 4, Text);
+	pWind->DrawString(Left.x + width / 3 - 2 * size(Text), Left.y + height / 4, Text);
 
 }
 
 
-void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, bool Selected )
+void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, bool Selected)
 {
 	ClickCheck(Left, width, height);
 
@@ -223,23 +223,23 @@ void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, 
 	int pointsY[4];
 	pointsX[0] = Left.x;
 	pointsY[0] = Left.y;
-	pointsX[1] = Left.x + width/2;
-	pointsY[1] = Left.y + height/2;
-	pointsX[2] = Left.x ;
+	pointsX[1] = Left.x + width / 2;
+	pointsY[1] = Left.y + height / 2;
+	pointsX[2] = Left.x;
 	pointsY[2] = Left.y + height;
-	pointsX[3] = Left.x - width/2;
-	pointsY[3] = Left.y + height/2;
+	pointsX[3] = Left.x - width / 2;
+	pointsY[3] = Left.y + height / 2;
 	int vertices = 4;
 	drawstyle dsStyle = FILLED;
-	pWind->DrawPolygon( pointsX , pointsY , vertices , dsStyle);
+	pWind->DrawPolygon(pointsX, pointsY, vertices, dsStyle);
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x  - 3.5*size(Text), Left.y + height / 2 - 10, Text);
+	pWind->DrawString(Left.x - 3.5 * size(Text), Left.y + height / 2 - 10, Text);
 
 }
 
-void Output::DrawStart(Point Left, int width, int height , bool Selected )
+void Output::DrawStart(Point Left, int width, int height, bool Selected)
 {
 	ClickCheck(Left, width, height);
 
@@ -248,7 +248,7 @@ void Output::DrawStart(Point Left, int width, int height , bool Selected )
 	else
 		pWind->SetPen(UI.DrawClr, 3);	//use normal color
 
-	
+
 	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
 
 	//Write statement text
@@ -256,7 +256,7 @@ void Output::DrawStart(Point Left, int width, int height , bool Selected )
 	pWind->DrawString(Left.x + width / 3, Left.y + height / 3, " Start");
 }
 
-void Output::DrawEnd(Point Left, int width, int height,  bool Selected )
+void Output::DrawEnd(Point Left, int width, int height, bool Selected)
 {
 	ClickCheck(Left, width, height);
 
@@ -265,7 +265,7 @@ void Output::DrawEnd(Point Left, int width, int height,  bool Selected )
 	else
 		pWind->SetPen(UI.DrawClr, 3);	//use normal color
 
-	
+
 	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
 
 	//Write statement text
@@ -443,26 +443,26 @@ void Output::DrawRead(Point Left, int width, int height, string Text, bool Selec
 	//Draw the statement block parallelogram
 	string text2 = "Read ";
 	Text = text2 + Text;
-	width += 4*size(Text);
+	width += 4 * size(Text);
 	int pointsX[4];
 	int pointsY[4];
 	pointsX[0] = Left.x;
 	pointsY[0] = Left.y;
-	pointsX[1] = Left.x + width ;
-	pointsY[1] = Left.y ;
-	pointsX[2] = Left.x+(2.0/3)*width;
+	pointsX[1] = Left.x + width;
+	pointsY[1] = Left.y;
+	pointsX[2] = Left.x + (2.0 / 3) * width;
 	pointsY[2] = Left.y + height;
-	pointsX[3] = Left.x-(1.0/3)*width;
-	pointsY[3] = Left.y + height ;
-	
-	
+	pointsX[3] = Left.x - (1.0 / 3) * width;
+	pointsY[3] = Left.y + height;
+
+
 	int vertices = 4;
 	drawstyle dsStyle = FILLED;
 	pWind->DrawPolygon(pointsX, pointsY, vertices, dsStyle);
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x + width/3 - 5*size(Text), Left.y + height / 2 - 10,Text);
+	pWind->DrawString(Left.x + width / 3 - 5 * size(Text), Left.y + height / 2 - 10, Text);
 
 
 
@@ -511,7 +511,7 @@ void  Output::WaitMouseClick(int& x, int& y)				//this waits for for mouse click
 
 color Output::Getcolour(int x, int y)
 {
-	color dummy =pWind->GetColor(x,y);
+	color dummy = pWind->GetColor(x, y);
 	return dummy;
 }
 //////////////////////////////////////////////////////////////////////////////////////////

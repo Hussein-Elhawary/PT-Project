@@ -8,12 +8,12 @@
 //Youssef Zaki  
 int main()
 {
-	 
+
 	Point P;
 
 	//Create Input and Output objects to test
-	Output *pOut = new Output();;
-	Input *pIn = pOut->CreateInput();
+	Output* pOut = new Output();;
+	Input* pIn = pOut->CreateInput();
 
 	//Starting the test
 	pOut->PrintMessage("This demo is to test input and output classes, Click anywhere to start the test");
@@ -30,37 +30,37 @@ int main()
 	pOut->PrintMessage("TEST1: Drawing Tool bar and Status bar, Click anywhere to continue");
 	pIn->GetPointClicked(P);	//Wait for any click
 
-	
+
 	///////////////////////////////////////////////////////////////////////////////////
 	// TEST 2:	Drawing all the Statements with all possible states:				 //
 	//			Normal, highlighted, empty, filled with code						 //
 	//			Also drawing connectors												 //
 	///////////////////////////////////////////////////////////////////////////////////
-	
+
 	pOut->PrintMessage("TEST2: Now we will show that Output class can draw any statement in any status, Click anywhere to continue");
 	pIn->GetPointClicked(P);	//Wait for any click
 
 	/// 2.1- Assignment statement test
 	//Drawing assignment statements in all posible states
-	
+
 	pOut->PrintMessage("Drawing Simple Assignment statements, Click to continue");
-	
+
 	//Drawing empty assignment statement
 	P.x = 100;	P.y = 100;
-	pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
 
 	//Drawing a resized empty assignment statement
 	P.x = 100;	P.y = 200;
-	pOut->DrawAssign(P,80, UI.ASSGN_HI, " = ");
+	pOut->DrawAssign(P, 80, UI.ASSGN_HI, " = ");
 
 	//Drawing edited (non-empty) assignment statement
 	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
 
 	//Drawing highlighted assignment statement
 	P.x = 100;	P.y = 400;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI," = ", true);
-	
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ", true);
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -87,7 +87,7 @@ int main()
 	/// 2.3- Conditional statement test
 	//Drawing Conditional statements in all posible states
 	pOut->PrintMessage("Drawing Conditional Statement, Click to continue");
-	
+
 	//TODO: Add code to draw different Conditional statements here
 	//Drawing an empty conditional statment
 	P.x = 100;	P.y = 100;
@@ -97,11 +97,11 @@ int main()
 	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary < 3000");
 	//Drawing edited (non-empty) and resized conditional statement
 	P.x = 100;	P.y = 300;
-	pOut->DrawCondtionalStat(P, 90 , UI.ASSGN_HI, "");
+	pOut->DrawCondtionalStat(P, 90, UI.ASSGN_HI, "");
 	//Drawing edited (non-empty) and highlighted conditional statement
 	P.x = 100;	P.y = 400;
-	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH , UI.ASSGN_HI, "x > y",true);
-	
+	pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "x > y", true);
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -120,9 +120,9 @@ int main()
 	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Price");
 	//Drawing highlighted read statement
 	P.x = 100;	P.y = 450;
-	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary",1);
-	
-	
+	pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "salary", 1);
+
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -141,9 +141,9 @@ int main()
 	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Total");
 	//Drawing highlighted Write statement
 	P.x = 100;	P.y = 450;
-	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Average",1);
+	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Average", 1);
 
-	
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -151,7 +151,7 @@ int main()
 	/// 2.6- Start & End statements test
 	//Drawing Start & End statements in all posible states
 	pOut->PrintMessage("Drawing Start & End Statements, Click to continue");
-	
+
 	//TODO: Add code to draw different Start & End statements here
 	//Drawing a start statment
 	P.x = 100;	P.y = 100;
@@ -183,7 +183,7 @@ int main()
 	pOut->PrintMessage("Drawing Connector, Click to continue");
 	Point Q;
 	P.x = 50;
-	Q.x = P.x ;
+	Q.x = P.x;
 	Q.y = P.y + 100;
 	pOut->DrawConnector(P, Q, false);
 
@@ -195,40 +195,40 @@ int main()
 	P.x = 300;
 	P.y = 300;
 
-	Q.x = P.x +100;
-	Q.y +=100;
+	Q.x = P.x + 100;
+	Q.y += 100;
 	pOut->DrawConnector(Q, P, false);
 
-	P.x = 100;
-	P.y = 400;
-
-	Q.x = P.x+200;
-	Q.y = P.y;
-	pOut->DrawConnector(P, Q, false);
-
-	P.x = 550;
-	P.y = 260;
-
-	Q.x +=400;
-	Q.y = P.y + 100;
-	pOut->DrawConnector(P, Q, false);
-	
 	P.x = 100;
 	P.y = 400;
 
 	Q.x = P.x + 200;
 	Q.y = P.y;
 	pOut->DrawConnector(P, Q, false);
-	
+
+	P.x = 550;
+	P.y = 260;
+
+	Q.x += 400;
+	Q.y = P.y + 100;
+	pOut->DrawConnector(P, Q, false);
+
+	P.x = 100;
+	P.y = 400;
+
+	Q.x = P.x + 200;
+	Q.y = P.y;
+	pOut->DrawConnector(P, Q, false);
+
 	P.x = 430;
 	P.y = 190;
 
 	Q.x += 40;
 	Q.y = P.y + 50;
 	pOut->DrawConnector(P, Q, false);
-	
-	
-	
+
+
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -238,15 +238,15 @@ int main()
 	///////////////////////////////////////////////////////////////////////////////////
 	pOut->PrintMessage("TEST3: Now Time to test class Input, Click anywhere to continue");
 	pIn->GetPointClicked(P);	//Wait for any click
-	
+
 	pOut->PrintMessage("Testing Input ability to read strings and values");
 
 	//TODO: Add code here to 
 	// 1- Read a string from the user and print it
-	string text=pIn->GetString(pOut);
+	string text = pIn->GetString(pOut);
 	P.x = 100;	P.y = 100;
 	pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, text, false);
-	
+
 	// 2- Read a double value from the user and print it
 	double D;
 	D = pIn->GetValue(pOut);
@@ -261,7 +261,7 @@ int main()
 	pOut->PrintMessage("TEST4: Testing Input ability to detect User Action, click anywhere");
 
 	ActionType ActType;
-	
+
 	//TODO:  You must add a case for each action
 	do
 	{
@@ -269,77 +269,77 @@ int main()
 
 		switch (ActType)
 		{
-			case ADD_SMPL_ASSIGN:
-				pOut->PrintMessage("Action: add assignment statement , Click anywhere");
-				 pIn->GetPointClicked(P);
-				pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI,pIn->GetString(pOut));
-				break;
+		case ADD_SMPL_ASSIGN:
+			pOut->PrintMessage("Action: add assignment statement , Click anywhere");
+			pIn->GetPointClicked(P);
+			pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, pIn->GetString(pOut));
+			break;
 
-			case START:
-				pOut->PrintMessage("Action: add start, Click anywhere");
-				pIn->GetPointClicked(P);
-				pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
-				break;
+		case START:
+			pOut->PrintMessage("Action: add start, Click anywhere");
+			pIn->GetPointClicked(P);
+			pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
+			break;
 
-			case END:
-				pOut->PrintMessage("Action: add end, Click anywhere");
-				pIn->GetPointClicked(P);
-				pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
-				break;
+		case END:
+			pOut->PrintMessage("Action: add end, Click anywhere");
+			pIn->GetPointClicked(P);
+			pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
+			break;
 
-			case READ:
-				pOut->PrintMessage("Action: add read, Click anywhere");
-				pIn->GetPointClicked(P);
-				pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI,pIn->GetString(pOut));
-				break;
+		case READ:
+			pOut->PrintMessage("Action: add read, Click anywhere");
+			pIn->GetPointClicked(P);
+			pOut->DrawRead(P, UI.ASSGN_WDTH, UI.ASSGN_HI, pIn->GetString(pOut));
+			break;
 
-			case WRITE:
-				pOut->PrintMessage("Action: add write, Click anywhere");
-				pIn->GetPointClicked(P);
-				pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, pIn->GetString(pOut));
-				break;
-
-
-			case ADD_CONDITION:
-				pOut->PrintMessage("Action: add conditional statement , Click anywhere");
-				pIn->GetPointClicked(P);
-				pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, pIn->GetString(pOut));
-				break;
-
-			case ADD_CONNECTOR:
-				pOut->PrintMessage("Action: add a connector , Click twice to connect 2 points");
-				pIn->GetPointClicked(P);
-				pIn->GetPointClicked(Q);
-				pOut->DrawConnector(P,Q,0);
-				break;
-
-			case SELECT:
-				pOut->PrintMessage("Action: a click on the Drawing area, Click anywhere");
-				break;
-			
-			case STATUS:
-				pOut->PrintMessage("Action: a click on the Status Bar, Click anywhere");
-				break;
- 
-			case DSN_TOOL:
-				pOut->PrintMessage("Action: a click on the Design Tool Bar, Click anywhere");
-				break;
-
-			case SIM_MODE:
-				pOut->PrintMessage("Action: Switch to Simulation Mode, creating simualtion tool bar");
-				pOut->CreateSimulationToolBar();
-				break;
-
-			case DSN_MODE:
-				pOut->PrintMessage("Action: Switch to Design Mode, creating Design tool bar");
-				pOut->CreateDesignToolBar();
-				break;
+		case WRITE:
+			pOut->PrintMessage("Action: add write, Click anywhere");
+			pIn->GetPointClicked(P);
+			pOut->DrawWrite(P, UI.ASSGN_WDTH, UI.ASSGN_HI, pIn->GetString(pOut));
+			break;
 
 
-			case EXIT:				
-				break;
+		case ADD_CONDITION:
+			pOut->PrintMessage("Action: add conditional statement , Click anywhere");
+			pIn->GetPointClicked(P);
+			pOut->DrawCondtionalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, pIn->GetString(pOut));
+			break;
+
+		case ADD_CONNECTOR:
+			pOut->PrintMessage("Action: add a connector , Click twice to connect 2 points");
+			pIn->GetPointClicked(P);
+			pIn->GetPointClicked(Q);
+			pOut->DrawConnector(P, Q, 0);
+			break;
+
+		case SELECT:
+			pOut->PrintMessage("Action: a click on the Drawing area, Click anywhere");
+			break;
+
+		case STATUS:
+			pOut->PrintMessage("Action: a click on the Status Bar, Click anywhere");
+			break;
+
+		case DSN_TOOL:
+			pOut->PrintMessage("Action: a click on the Design Tool Bar, Click anywhere");
+			break;
+
+		case SIM_MODE:
+			pOut->PrintMessage("Action: Switch to Simulation Mode, creating simualtion tool bar");
+			pOut->CreateSimulationToolBar();
+			break;
+
+		case DSN_MODE:
+			pOut->PrintMessage("Action: Switch to Design Mode, creating Design tool bar");
+			pOut->CreateDesignToolBar();
+			break;
+
+
+		case EXIT:
+			break;
 		}
-	}while(ActType != EXIT);
+	} while (ActType != EXIT);
 
 
 	/// Exiting
@@ -348,7 +348,7 @@ int main()
 
 
 	delete pIn;
-	delete pOut;	
+	delete pOut;
 	return 0;
 }
 
