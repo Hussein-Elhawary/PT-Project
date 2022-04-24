@@ -357,16 +357,35 @@ int main()
 			pOut->PrintMessage("Action: a click on the Design Tool Bar, Click anywhere");
 			break;
 
+		case DEL:
+			pOut->PrintMessage("Action: a click on the an Item(s) to delete");
+			break;
+
 		case SIM_MODE:
 			pOut->PrintMessage("Action: Switch to Simulation Mode, creating simualtion tool bar");
 			pOut->CreateSimulationToolBar();
 			break;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//											Simulation part													//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		case DSN_MODE:
 			pOut->PrintMessage("Action: Switch to Design Mode, creating Design tool bar");
 			pOut->CreateDesignToolBar();
 			break;
 
+		case RUN:
+			pOut->PrintMessage("Action: your project will now run");
+			break;
+
+		case STP:
+			pOut->PrintMessage("Action: your project will now run step by step (Debug)");
+			break;
+
+		case FLTOCODE:
+			pOut->PrintMessage("Action: your project will be turned to C++ code");
+			break;
 
 		case EXIT:
 			break;

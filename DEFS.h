@@ -35,7 +35,6 @@ enum ActionType //The actions supported (you can add more if needed)
 	ZOOM_OUT,	//Zoom out
 	ZOOM_IN,	//Zoom in
 	RUN,		//Run
-	BCTODSG,	//return back to design mode
 	FLTOCODE,	//flow chart to code
 	STP,		//step by step run
 
@@ -61,6 +60,7 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_COND,		  //conditional statement
 	ITM_CONNECTOR,    //Connector
 	ITM_END,		  //End
+	ITM_SELECT,		  //select
 	ITM_COPY,		  //Copy
 	ITM_CUT,		  //Cut
 	ITM_PASTE,		  //Paste
@@ -69,6 +69,7 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_MOVE,		  //MOVE
 	ITM_ZOOM_OUT,	  //Zoom out
 	ITM_ZOOM_IN,	  //Zoom in
+	ITM_DEL,		  //Delete a figure(s)
 	ITM_SIM_MODE,	  //Switch to simulatiom mode
 	ITM_DSN_CNT		  //no. of design menu items ==> This should be the last line in this enum
 	
@@ -83,9 +84,8 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 	ITM_STP,    //Step by step
 	
 	//TODO:Add more items names here
-
-	ITM_SIM_BCTODSG,//back to design mode
 	ITM_SIM_FLTOCODE,//flow chart to C++ code
+	ITM_DSN_MODE,//back to design mode
 	ITM_SIM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
 };
 

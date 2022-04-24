@@ -4,7 +4,7 @@
 Output::Output()
 {
 	//Initialize user interface parameters
-	UI.width = 900;
+	UI.width = 1000;
 	UI.height = 700;
 	UI.wx = 15;
 	UI.wy = 15;
@@ -60,6 +60,10 @@ void Output::CreateDesignToolBar()
 	UI.AppMode = DESIGN;	//Design Mode
 	int i = 0;
 
+	pWind->SetPen(RED, 2.5);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(0, 0, UI.width, UI.TlBrWdth);
+	
 	//fill the tool bar 
 	//You can draw the tool bar icons in any way you want.
 	pWind->DrawImage("images\\exit.jpg", 0, 0);//here to input image in the tool bar
@@ -70,15 +74,17 @@ void Output::CreateDesignToolBar()
 	pWind->DrawImage("images\\condition.jpg", 250, 0);
 	pWind->DrawImage("images\\connector.jpg", 300, 0);
 	pWind->DrawImage("images\\end.jpg", 350, 0);
-	pWind->DrawImage("images\\copy.jpg", 400, 0);
-	pWind->DrawImage("images\\cut.jpg", 450, 0);
-	pWind->DrawImage("images\\paste.jpg", 500, 0);
-	pWind->DrawImage("images\\save.jpg", 550, 0);
-	pWind->DrawImage("images\\edit.jpg", 600, 0);
-	pWind->DrawImage("images\\move.jpg", 650, 0);
-	pWind->DrawImage("images\\zoomout.jpg", 700, 0);
-	pWind->DrawImage("images\\zoomin.jpg", 750, 0);
-	pWind->DrawImage("images\\gotosim.jpg", 800, 0);	
+	//pWind->DrawImage("images\\select.jpg", 400, 0);		//zahar e3mel select 
+	pWind->DrawImage("images\\copy.jpg", 450, 0);
+	pWind->DrawImage("images\\cut.jpg", 500, 0);
+	pWind->DrawImage("images\\paste.jpg", 550, 0);
+	pWind->DrawImage("images\\save.jpg", 600, 0);
+	pWind->DrawImage("images\\edit.jpg", 650, 0);
+	pWind->DrawImage("images\\move.jpg", 700, 0);
+	pWind->DrawImage("images\\zoomout.jpg", 750, 0);
+	pWind->DrawImage("images\\zoomin.jpg", 800, 0);
+	//pWind->DrawImage("images\\del.jpg", 850, 0);		//zahar e3mel delete 
+	pWind->DrawImage("images\\gotosim.jpg", 900, 0);	
 
 
 	//Draw a line under the toolbar
@@ -101,16 +107,18 @@ void Output::CreateDesignToolBar()
 	pWind->DrawLine(750, UI.TlBrWdth, 750, 0);
 	pWind->DrawLine(800, UI.TlBrWdth, 800, 0);
 	pWind->DrawLine(850, UI.TlBrWdth, 850, 0);
-
+	pWind->DrawLine(900, UI.TlBrWdth, 900, 0);
+	pWind->DrawLine(900, UI.TlBrWdth, 900, 0);
+	pWind->DrawLine(950, UI.TlBrWdth, 950, 0);
+	pWind->DrawLine(0, 0, UI.width, 0);
 }
-
 
 void Output::CreateSimulationToolBar()
 {
 	UI.AppMode = SIMULATION;	//Simulation Mode
 	///TODO: add code to create the simulation tool bar
 	//SIMUATION Mode
-	pWind->SetPen(RED, 1);
+	pWind->SetPen(RED, 2.5);
 	pWind->SetBrush(WHITE);
 	pWind->DrawRectangle(0, 0, UI.width, UI.TlBrWdth);
 	//fill the tool bar 
@@ -135,7 +143,7 @@ void Output::CreateSimulationToolBar()
 	pWind->DrawLine(250, UI.TlBrWdth, 250, 0);
 	
 
-	
+	pWind->DrawLine(0, 0, UI.width, 0);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::ClearStatusBar()

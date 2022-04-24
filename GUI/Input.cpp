@@ -133,6 +133,7 @@ ActionType Input::GetUserAction() const
 			case ITM_COND: return ADD_CONDITION;
 			case ITM_CONNECTOR: return ADD_CONNECTOR;
 			case ITM_END: return END;
+			case ITM_SELECT: return SELECT;
 			case ITM_COPY: return COPY;
 			case ITM_CUT: return CUT;
 			case ITM_PASTE: return PASTE;
@@ -141,6 +142,7 @@ ActionType Input::GetUserAction() const
 			case ITM_MOVE:return MOVE;
 			case ITM_ZOOM_OUT: return ZOOM_OUT;
 			case ITM_ZOOM_IN: return ZOOM_IN;
+			case ITM_DEL: return DEL;
 			case ITM_SIM_MODE: return SIM_MODE;
 
 			default: return DSN_TOOL;
@@ -171,16 +173,15 @@ ActionType Input::GetUserAction() const
 			case ITM_RUN: return RUN;
 			case ITM_STP: return STP;
 			case ITM_SIM_FLTOCODE: return FLTOCODE;
-			case ITM_SIM_BCTODSG: return BCTODSG;
-		
-			
+			case ITM_DSN_MODE: return DSN_MODE;
 
-			default: return SIM_TOOL;
+
+
+			default:return SIM_MODE;	//This should be changed after creating the compelete simulation bar 
+
 			}
 		}
-		return SIM_MODE;	//This should be changed after creating the compelete simulation bar 
 	}
-
 }
 
 Input::~Input()
