@@ -74,7 +74,7 @@ void Output::CreateDesignToolBar()
 	pWind->DrawImage("images\\condition.jpg", 250, 0);
 	pWind->DrawImage("images\\connector.jpg", 300, 0);
 	pWind->DrawImage("images\\end.jpg", 350, 0);
-	//pWind->DrawImage("images\\select.jpg", 400, 0);		//zahar e3mel select 
+	pWind->DrawImage("images\\select.jpg", 400, 0);		
 	pWind->DrawImage("images\\copy.jpg", 450, 0);
 	pWind->DrawImage("images\\cut.jpg", 500, 0);
 	pWind->DrawImage("images\\paste.jpg", 550, 0);
@@ -83,7 +83,7 @@ void Output::CreateDesignToolBar()
 	pWind->DrawImage("images\\move.jpg", 700, 0);
 	pWind->DrawImage("images\\zoomout.jpg", 750, 0);
 	pWind->DrawImage("images\\zoomin.jpg", 800, 0);
-	//pWind->DrawImage("images\\del.jpg", 850, 0);		//zahar e3mel delete 
+	pWind->DrawImage("images\\del.jpg", 850, 0);		 
 	pWind->DrawImage("images\\gotosim.jpg", 900, 0);	
 
 
