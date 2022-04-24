@@ -346,7 +346,7 @@ int main()
 			break;
 
 		case SELECT:
-			pOut->PrintMessage("Action: a click on the Drawing area, Click anywhere");
+			pOut->PrintMessage("Action: a click on the an Item(s) to select");
 			break;
 
 		case STATUS:
