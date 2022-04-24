@@ -37,7 +37,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	RUN,		//Run
 	BCTODSG,	//return back to design mode
 	FLTOCODE,	//flow chart to code
-	DEBUG,		//step by step run
+	STP,		//step by step run
 
 };
 
@@ -53,7 +53,7 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	//Note: Items are ordered here as they appear in menu
 	//If you change the menu items order, change the order here too
 	//TODO: Add more items names here
-	ITM_EXIT,		  //Exit
+	ITM_EXIT_DSN,		  //Exit for Design
 	ITM_START,        //Start
 	ITM_READ,         //Read
 	ITM_WRITE,        //Write
@@ -78,8 +78,9 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 enum SimMenuItem //The items of the simulation menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
+	ITM_EXIT_SIM,   //Exit for sim
 	ITM_RUN,	//Run
-	ITM_STP,	//Step by step
+	ITM_STP,    //Step by step
 	
 	//TODO:Add more items names here
 

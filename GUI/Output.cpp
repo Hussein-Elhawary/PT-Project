@@ -110,7 +110,9 @@ void Output::CreateSimulationToolBar()
 	UI.AppMode = SIMULATION;	//Simulation Mode
 	///TODO: add code to create the simulation tool bar
 	//SIMUATION Mode
-
+	pWind->SetPen(RED, 1);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(0, 0, UI.width, UI.TlBrWdth);
 	//fill the tool bar 
 	//You can draw the tool bar icons in any way you want.
 	//here to input image in the tool bar
@@ -124,24 +126,16 @@ void Output::CreateSimulationToolBar()
 
 
 	//Draw a line under the toolbar
-	pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);
+	//pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);
 	//here to draw line in the tool bar around images
 	pWind->DrawLine(50, UI.TlBrWdth, 50, 0);
 	pWind->DrawLine(100, UI.TlBrWdth, 100, 0);
 	pWind->DrawLine(150, UI.TlBrWdth, 150, 0);
 	pWind->DrawLine(200, UI.TlBrWdth, 200, 0);
 	pWind->DrawLine(250, UI.TlBrWdth, 250, 0);
-	//pWind->DrawLine(300, UI.TlBrWdth, 300, 0);
-	//pWind->DrawLine(350, UI.TlBrWdth, 350, 0);
-	//pWind->DrawLine(400, UI.TlBrWdth, 400, 0);
-	//pWind->DrawLine(450, UI.TlBrWdth, 450, 0);
-	//pWind->DrawLine(500, UI.TlBrWdth, 500, 0);
-	//pWind->DrawLine(550, UI.TlBrWdth, 550, 0);
-	//pWind->DrawLine(550, UI.TlBrWdth, 600, 0);
-	//pWind->DrawLine(550, UI.TlBrWdth, 650, 0);
+	
 
-	//Draw a line under the toolbar
-	pWind->DrawLine(0, UI.TlBrWdth, UI.width, UI.TlBrWdth);
+	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::ClearStatusBar()
@@ -220,6 +214,7 @@ void Output::DrawCondtionalStat(Point Left, int width, int height, string Text, 
 	//Draw the statement block Roumbus
 	width += 3 * size(Text);
 	height += 3 * size(Text);
+	// entering the coordinates of the rhombus vertices
 	int pointsX[4];
 	int pointsY[4];
 	pointsX[0] = Left.x;
@@ -406,7 +401,7 @@ void Output::DrawConnector(Point Start, Point End, bool Selected)
 	pWind->DrawLine(Start.x, Start.y, End.x, Start.y, dsStyle);
 	pWind->DrawLine(End.x, Start.y, End.x, End.y, dsStyle);
 
-
+	// conditions for drawing the arrow head
 
 	if (Start.y < End.y)
 	{
@@ -500,7 +495,7 @@ void Output::DrawWrite(Point Left, int width, int height, string Text, bool Sele
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
 	pWind->DrawString(Left.x + width / 3 - 5 * size(Text), Left.y + height / 2 - 10, Text);
-	pWind->DrawString(Left.x + width / 3 - 5 * size(Text), Left.y + height / 2 - 10, Text);
+//	pWind->DrawString(Left.x + width / 3 - 5 * size(Text), Left.y + height / 2 - 10, Text);
 
 }
 

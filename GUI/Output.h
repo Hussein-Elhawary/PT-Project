@@ -36,7 +36,7 @@ public:
 	void DrawWrite(Point Left, int width, int height, string Text, bool Selected = false);			//
     void WaitMouseClick(int& x, int& y);															//
 	void ClickCheck(Point &Left, int width, int height);											//
-	color Getcolour(int x, int y);																		//
+	color Getcolour(int x, int y);																    //
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 		
 	void PrintMessage(string msg);	//Prints a message on Status bar

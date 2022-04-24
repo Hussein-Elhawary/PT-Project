@@ -218,14 +218,14 @@ int main()
 
 	Q.x = P.x + 200;
 	Q.y = P.y;
-	pOut->DrawConnector(P, Q, false);
+	pOut->DrawConnector(P, Q, true);
 
 	P.x = 430;
 	P.y = 190;
 
 	Q.x += 40;
 	Q.y = P.y + 50;
-	pOut->DrawConnector(P, Q, false);
+	pOut->DrawConnector(P, Q, true);
 
 
 
@@ -311,6 +311,38 @@ int main()
 			pIn->GetPointClicked(P);
 			pIn->GetPointClicked(Q);
 			pOut->DrawConnector(P, Q, 0);
+			break;
+
+		case COPY:
+			pOut->PrintMessage("Action:Copy statment(s) or figure(s):");
+			break;
+
+		case CUT:
+			pOut->PrintMessage("Action:Cut statment(s) or figure(s):");
+			break;
+
+		case PASTE:
+			pOut->PrintMessage("Action:Paste statment(s) or figure(s):");
+			break;
+
+		case EDIT_STAT:
+			pOut->PrintMessage("Action:Edit statment(s) or figure(s):");
+			break;
+
+		case MOVE:
+			pOut->PrintMessage("Action:Move statment(s) or figure(s):");
+			break;
+
+		case SAVE:
+			pOut->PrintMessage("Action:Save the flowchart:");
+			break;
+
+		case ZOOM_OUT:
+			pOut->PrintMessage("Action:Zoom out:");
+			break;
+
+		case ZOOM_IN:
+			pOut->PrintMessage("Action:Zoom in:");
 			break;
 
 		case SELECT:

@@ -50,7 +50,7 @@ double Input::GetValue(Output* pO) const	// Reads a double value from the user
 			return 0;	//returns nothing as user has cancelled label
 		if (st == 13)	//ENTER key is pressed
 		{
-			D = stod(str);
+			D = stod(str);//convert string to double
 			return D;
 		}
 		if (st == 8)	//BackSpace is pressed
@@ -125,7 +125,7 @@ ActionType Input::GetUserAction() const
 			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
 			switch (ClickedItem)
 			{
-			case ITM_EXIT: return EXIT;
+			case ITM_EXIT_DSN: return EXIT;
 			case ITM_START: return START;
 			case ITM_READ: return READ;
 			case ITM_WRITE: return WRITE;
@@ -158,6 +158,26 @@ ActionType Input::GetUserAction() const
 	}
 	else	//Application is in Simulation mode
 	{
+		if (y >= 0 && y < UI.TlBrWdth)
+		{
+			//Check whick Menu item was clicked
+			//This assumes that menu items are lined up horizontally
+			int ClickedItem = (x / UI.MnItWdth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+			switch (ClickedItem)
+			{
+			case ITM_EXIT_SIM: return EXIT;
+			case ITM_RUN: return RUN;
+			case ITM_STP: return STP;
+			case ITM_SIM_FLTOCODE: return FLTOCODE;
+			case ITM_SIM_BCTODSG: return BCTODSG;
+		
+			
+
+			default: return SIM_TOOL;
+			}
+		}
 		return SIM_MODE;	//This should be changed after creating the compelete simulation bar 
 	}
 
