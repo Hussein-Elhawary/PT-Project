@@ -254,7 +254,7 @@ hInstance(GetModuleHandle(0)), iWindowWidth(iWindWidth), iWindowHeight(iWindHeig
 
 window::~window() {
 
-    //int iX, iY;
+    int iX, iY;
 
     if(dcScreen != NULL) {
         if(ReleaseDC(hwndWindow, dcScreen) == 0) {

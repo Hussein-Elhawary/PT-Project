@@ -4,7 +4,6 @@
 	Version="8.00"
 	Name="PT Project"
 	ProjectGUID="{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}"
-	RootNamespace="PT Project"
 	>
 	<Platforms>
 		<Platform
@@ -989,6 +988,22 @@
 			</Filter>
 		</Filter>
 		<Filter
+			Name="Action Classes"
+			>
+			<File
+				RelativePath=".\Actions\Action.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Actions\AddSmplAssign.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Actions\AddSmplAssign.h"
+				>
+			</File>
+		</Filter>
+		<Filter
 			Name="GUI Classes"
 			>
 			<File
@@ -1012,13 +1027,85 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="Application Manager"
+			>
+			<File
+				RelativePath="ApplicationManager.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ApplicationManager.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Statements"
+			>
+			<File
+				RelativePath=".\Statements\Connector.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Statements\Connector.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Statements\SmplAssign.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Statements\SmplAssign.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Statements\Statement.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Statements\Statement.h"
+				>
+			</File>
+		</Filter>
 		<File
 			RelativePath=".\DEFS.h"
 			>
 		</File>
 		<File
-			RelativePath=".\Phase1-Test.cpp"
+			RelativePath="main.cpp"
 			>
+			<FileConfiguration
+				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 	</Files>
 	<Globals>

@@ -94,7 +94,7 @@ void image::Open(const char *cpFileName, imagetype itThisType) {
 	bmiImage->bmiHeader.biSizeImage = 0;
 	bmiImage->bmiHeader.biClrUsed = 0;
 	bmiImage->bmiHeader.biClrImportant = 0;
-	
+
     if(itType == JPEG) {
         iErrorCode = jpegload(cpFileName, &usWidth, &usHeight, &ucpTmp);
         if(iErrorCode == -1) {
